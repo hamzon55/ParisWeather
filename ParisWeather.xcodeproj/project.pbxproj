@@ -13,10 +13,19 @@
 		205549F12C17265B00601EC5 /* URLSessionAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205549F02C17265B00601EC5 /* URLSessionAPIClient.swift */; };
 		205549F42C172DE400601EC5 /* WeatherConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205549F32C172DE400601EC5 /* WeatherConstants.swift */; };
 		205549F72C172F9400601EC5 /* ParisWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205549F62C172F9400601EC5 /* ParisWeatherViewModel.swift */; };
-		205549FA2C17318500601EC5 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205549F92C17318500601EC5 /* WeatherResponse.swift */; };
+		205549FA2C17318500601EC5 /* WeatherDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205549F92C17318500601EC5 /* WeatherDataModel.swift */; };
+		205549FC2C1733FE00601EC5 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205549FB2C1733FE00601EC5 /* City.swift */; };
+		205549FE2C17341A00601EC5 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205549FD2C17341A00601EC5 /* Coordinates.swift */; };
+		20554A002C17343C00601EC5 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205549FF2C17343C00601EC5 /* List.swift */; };
+		20554A032C17353C00601EC5 /* WeatherUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20554A022C17353C00601EC5 /* WeatherUseCase.swift */; };
+		20554A052C17427D00601EC5 /* ParisWeatherViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20554A042C17427D00601EC5 /* ParisWeatherViewState.swift */; };
+		20554A072C174E0600601EC5 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20554A062C174E0600601EC5 /* WeatherCell.swift */; };
+		20554A0A2C17519C00601EC5 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20554A092C17519C00601EC5 /* AppCoordinator.swift */; };
+		20554A0C2C1751AA00601EC5 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20554A0B2C1751AA00601EC5 /* MainCoordinator.swift */; };
+		20554A0E2C1751E700601EC5 /* WeatherViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20554A0D2C1751E700601EC5 /* WeatherViewModelFactory.swift */; };
 		20C8B1C42C1718DD00D4E225 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8B1C32C1718DD00D4E225 /* AppDelegate.swift */; };
 		20C8B1C62C1718DD00D4E225 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8B1C52C1718DD00D4E225 /* SceneDelegate.swift */; };
-		20C8B1C82C1718DD00D4E225 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8B1C72C1718DD00D4E225 /* ViewController.swift */; };
+		20C8B1C82C1718DD00D4E225 /* ParisWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8B1C72C1718DD00D4E225 /* ParisWeatherViewController.swift */; };
 		20C8B1CD2C1718DE00D4E225 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20C8B1CC2C1718DE00D4E225 /* Assets.xcassets */; };
 		20C8B1D02C1718DE00D4E225 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 20C8B1CF2C1718DE00D4E225 /* Base */; };
 		20C8B1DB2C1718DE00D4E225 /* ParisWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8B1DA2C1718DE00D4E225 /* ParisWeatherTests.swift */; };
@@ -52,11 +61,20 @@
 		205549F02C17265B00601EC5 /* URLSessionAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionAPIClient.swift; sourceTree = "<group>"; };
 		205549F32C172DE400601EC5 /* WeatherConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherConstants.swift; sourceTree = "<group>"; };
 		205549F62C172F9400601EC5 /* ParisWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParisWeatherViewModel.swift; sourceTree = "<group>"; };
-		205549F92C17318500601EC5 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
+		205549F92C17318500601EC5 /* WeatherDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataModel.swift; sourceTree = "<group>"; };
+		205549FB2C1733FE00601EC5 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		205549FD2C17341A00601EC5 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
+		205549FF2C17343C00601EC5 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		20554A022C17353C00601EC5 /* WeatherUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherUseCase.swift; sourceTree = "<group>"; };
+		20554A042C17427D00601EC5 /* ParisWeatherViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParisWeatherViewState.swift; sourceTree = "<group>"; };
+		20554A062C174E0600601EC5 /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
+		20554A092C17519C00601EC5 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		20554A0B2C1751AA00601EC5 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		20554A0D2C1751E700601EC5 /* WeatherViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModelFactory.swift; sourceTree = "<group>"; };
 		20C8B1C02C1718DD00D4E225 /* ParisWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParisWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20C8B1C32C1718DD00D4E225 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20C8B1C52C1718DD00D4E225 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		20C8B1C72C1718DD00D4E225 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		20C8B1C72C1718DD00D4E225 /* ParisWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParisWeatherViewController.swift; sourceTree = "<group>"; };
 		20C8B1CC2C1718DE00D4E225 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20C8B1CF2C1718DE00D4E225 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		20C8B1D12C1718DE00D4E225 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -106,6 +124,7 @@
 		205549E92C17231A00601EC5 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				20554A012C1734A600601EC5 /* WeatherUseCase */,
 				205549F82C17317600601EC5 /* Entity */,
 				205549EA2C17243E00601EC5 /* APIClient.swift */,
 				205549EC2C1724C100601EC5 /* APIEndpoint.swift */,
@@ -126,8 +145,10 @@
 		205549F52C172F4C00601EC5 /* ParisWeatherView */ = {
 			isa = PBXGroup;
 			children = (
-				20C8B1C72C1718DD00D4E225 /* ViewController.swift */,
+				20C8B1C72C1718DD00D4E225 /* ParisWeatherViewController.swift */,
+				20554A042C17427D00601EC5 /* ParisWeatherViewState.swift */,
 				205549F62C172F9400601EC5 /* ParisWeatherViewModel.swift */,
+				20554A062C174E0600601EC5 /* WeatherCell.swift */,
 			);
 			path = ParisWeatherView;
 			sourceTree = "<group>";
@@ -135,9 +156,30 @@
 		205549F82C17317600601EC5 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				205549F92C17318500601EC5 /* WeatherResponse.swift */,
+				205549F92C17318500601EC5 /* WeatherDataModel.swift */,
+				205549FB2C1733FE00601EC5 /* City.swift */,
+				205549FD2C17341A00601EC5 /* Coordinates.swift */,
+				205549FF2C17343C00601EC5 /* List.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		20554A012C1734A600601EC5 /* WeatherUseCase */ = {
+			isa = PBXGroup;
+			children = (
+				20554A022C17353C00601EC5 /* WeatherUseCase.swift */,
+			);
+			path = WeatherUseCase;
+			sourceTree = "<group>";
+		};
+		20554A082C17518700601EC5 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				20554A092C17519C00601EC5 /* AppCoordinator.swift */,
+				20554A0B2C1751AA00601EC5 /* MainCoordinator.swift */,
+				20554A0D2C1751E700601EC5 /* WeatherViewModelFactory.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		20C8B1B72C1718DD00D4E225 = {
@@ -165,6 +207,7 @@
 		20C8B1C22C1718DD00D4E225 /* ParisWeather */ = {
 			isa = PBXGroup;
 			children = (
+				20554A082C17518700601EC5 /* Coordinator */,
 				205549F52C172F4C00601EC5 /* ParisWeatherView */,
 				205549F22C172DD100601EC5 /* Common */,
 				205549E92C17231A00601EC5 /* Core */,
@@ -455,13 +498,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20C8B1C82C1718DD00D4E225 /* ViewController.swift in Sources */,
+				20554A032C17353C00601EC5 /* WeatherUseCase.swift in Sources */,
+				20C8B1C82C1718DD00D4E225 /* ParisWeatherViewController.swift in Sources */,
+				20554A0A2C17519C00601EC5 /* AppCoordinator.swift in Sources */,
 				20C8B1C42C1718DD00D4E225 /* AppDelegate.swift in Sources */,
 				20C8B1C62C1718DD00D4E225 /* SceneDelegate.swift in Sources */,
+				205549FE2C17341A00601EC5 /* Coordinates.swift in Sources */,
+				20554A002C17343C00601EC5 /* List.swift in Sources */,
+				20554A0C2C1751AA00601EC5 /* MainCoordinator.swift in Sources */,
 				205549EB2C17243E00601EC5 /* APIClient.swift in Sources */,
-				205549FA2C17318500601EC5 /* WeatherResponse.swift in Sources */,
+				205549FA2C17318500601EC5 /* WeatherDataModel.swift in Sources */,
+				20554A0E2C1751E700601EC5 /* WeatherViewModelFactory.swift in Sources */,
 				205549ED2C1724C100601EC5 /* APIEndpoint.swift in Sources */,
 				205549EF2C17256300601EC5 /* WeatherEndpoint.swift in Sources */,
+				20554A052C17427D00601EC5 /* ParisWeatherViewState.swift in Sources */,
+				205549FC2C1733FE00601EC5 /* City.swift in Sources */,
+				20554A072C174E0600601EC5 /* WeatherCell.swift in Sources */,
 				205549F42C172DE400601EC5 /* WeatherConstants.swift in Sources */,
 				205549F72C172F9400601EC5 /* ParisWeatherViewModel.swift in Sources */,
 				205549F12C17265B00601EC5 /* URLSessionAPIClient.swift in Sources */,
