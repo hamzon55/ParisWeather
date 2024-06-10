@@ -5,7 +5,6 @@ import SnapKit
 
 class ParisWeatherViewController: UIViewController {
     
-    
     private let disposeBag = DisposeBag()
     private let viewModel: ParisWeatherViewModel
     private let appearSubject = PublishSubject<Void>()
@@ -70,7 +69,7 @@ class ParisWeatherViewController: UIViewController {
                self.viewModel.list = weatherResponse
                tableView.reloadData()
            case .failure(let error):
-            break
+               debugPrint(error)
            }
        }
     
@@ -82,16 +81,11 @@ extension ParisWeatherViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.list.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: WeatherCell.cellID, for: indexPath) as! WeatherCell
         let weatherList = viewModel.list[indexPath.row]
-        if let weatherItem = weatherList.weather.first {
-            cell.configure(with: weatherItem)
-
-        } else {
-            print("Weather data not available")
-
-        }
+        cell.configure(with: weatherList)
         cell.backgroundColor = UIColor { traitCollection in
             return traitCollection.userInterfaceStyle == .dark ? .black : .white
         }

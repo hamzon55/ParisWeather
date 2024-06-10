@@ -4,4 +4,5 @@ struct WeatherConstants {
     static let baseUrl = "http://api.openweathermap.org/data/2.5"
     static let forecastKey = "forecast"
     static let weatherKey = "weather"
+    static let Country = "Paris"
 }

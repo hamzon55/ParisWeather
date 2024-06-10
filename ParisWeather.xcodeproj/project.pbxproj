@@ -23,6 +23,8 @@
 		20554A0A2C17519C00601EC5 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20554A092C17519C00601EC5 /* AppCoordinator.swift */; };
 		20554A0C2C1751AA00601EC5 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20554A0B2C1751AA00601EC5 /* MainCoordinator.swift */; };
 		20554A0E2C1751E700601EC5 /* WeatherViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20554A0D2C1751E700601EC5 /* WeatherViewModelFactory.swift */; };
+		20554A102C17B05500601EC5 /* Doulbe+ToCelsius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20554A0F2C17B05500601EC5 /* Doulbe+ToCelsius.swift */; };
+		20554A122C17C7AA00601EC5 /* Date+IsNightTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20554A112C17C7AA00601EC5 /* Date+IsNightTime.swift */; };
 		20C8B1C42C1718DD00D4E225 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8B1C32C1718DD00D4E225 /* AppDelegate.swift */; };
 		20C8B1C62C1718DD00D4E225 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8B1C52C1718DD00D4E225 /* SceneDelegate.swift */; };
 		20C8B1C82C1718DD00D4E225 /* ParisWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8B1C72C1718DD00D4E225 /* ParisWeatherViewController.swift */; };
@@ -71,6 +73,8 @@
 		20554A092C17519C00601EC5 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		20554A0B2C1751AA00601EC5 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		20554A0D2C1751E700601EC5 /* WeatherViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModelFactory.swift; sourceTree = "<group>"; };
+		20554A0F2C17B05500601EC5 /* Doulbe+ToCelsius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Doulbe+ToCelsius.swift"; sourceTree = "<group>"; };
+		20554A112C17C7AA00601EC5 /* Date+IsNightTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+IsNightTime.swift"; sourceTree = "<group>"; };
 		20C8B1C02C1718DD00D4E225 /* ParisWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParisWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20C8B1C32C1718DD00D4E225 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20C8B1C52C1718DD00D4E225 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 			isa = PBXGroup;
 			children = (
 				205549F32C172DE400601EC5 /* WeatherConstants.swift */,
+				20554A0F2C17B05500601EC5 /* Doulbe+ToCelsius.swift */,
+				20554A112C17C7AA00601EC5 /* Date+IsNightTime.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -500,6 +506,7 @@
 			files = (
 				20554A032C17353C00601EC5 /* WeatherUseCase.swift in Sources */,
 				20C8B1C82C1718DD00D4E225 /* ParisWeatherViewController.swift in Sources */,
+				20554A102C17B05500601EC5 /* Doulbe+ToCelsius.swift in Sources */,
 				20554A0A2C17519C00601EC5 /* AppCoordinator.swift in Sources */,
 				20C8B1C42C1718DD00D4E225 /* AppDelegate.swift in Sources */,
 				20C8B1C62C1718DD00D4E225 /* SceneDelegate.swift in Sources */,
@@ -512,6 +519,7 @@
 				205549ED2C1724C100601EC5 /* APIEndpoint.swift in Sources */,
 				205549EF2C17256300601EC5 /* WeatherEndpoint.swift in Sources */,
 				20554A052C17427D00601EC5 /* ParisWeatherViewState.swift in Sources */,
+				20554A122C17C7AA00601EC5 /* Date+IsNightTime.swift in Sources */,
 				205549FC2C1733FE00601EC5 /* City.swift in Sources */,
 				20554A072C174E0600601EC5 /* WeatherCell.swift in Sources */,
 				205549F42C172DE400601EC5 /* WeatherConstants.swift in Sources */,

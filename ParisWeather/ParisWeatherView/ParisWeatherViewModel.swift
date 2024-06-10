@@ -18,7 +18,7 @@ class ParisWeatherViewModel: ParisWeatherViewModelType {
         
         input.appear
             .flatMapLatest { [unowned self] _ in
-                self.useCase.getFiveDayForecast(city: "Paris")
+                self.useCase.getFiveDayForecast(city: WeatherConstants.Country)
                     .asObservable()
                     .materialize()
             }
