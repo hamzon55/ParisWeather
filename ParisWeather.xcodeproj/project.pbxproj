@@ -10,7 +10,6 @@
 		20C8B1C42C1718DD00D4E225 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8B1C32C1718DD00D4E225 /* AppDelegate.swift */; };
 		20C8B1C62C1718DD00D4E225 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8B1C52C1718DD00D4E225 /* SceneDelegate.swift */; };
 		20C8B1C82C1718DD00D4E225 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8B1C72C1718DD00D4E225 /* ViewController.swift */; };
-		20C8B1CB2C1718DD00D4E225 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 20C8B1CA2C1718DD00D4E225 /* Base */; };
 		20C8B1CD2C1718DE00D4E225 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20C8B1CC2C1718DE00D4E225 /* Assets.xcassets */; };
 		20C8B1D02C1718DE00D4E225 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 20C8B1CF2C1718DE00D4E225 /* Base */; };
 		20C8B1DB2C1718DE00D4E225 /* ParisWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8B1DA2C1718DE00D4E225 /* ParisWeatherTests.swift */; };
@@ -44,7 +43,6 @@
 		20C8B1C32C1718DD00D4E225 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20C8B1C52C1718DD00D4E225 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		20C8B1C72C1718DD00D4E225 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		20C8B1CA2C1718DD00D4E225 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		20C8B1CC2C1718DE00D4E225 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20C8B1CF2C1718DE00D4E225 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		20C8B1D12C1718DE00D4E225 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 				20C8B1C32C1718DD00D4E225 /* AppDelegate.swift */,
 				20C8B1C52C1718DD00D4E225 /* SceneDelegate.swift */,
 				20C8B1C72C1718DD00D4E225 /* ViewController.swift */,
-				20C8B1C92C1718DD00D4E225 /* Main.storyboard */,
 				20C8B1CC2C1718DE00D4E225 /* Assets.xcassets */,
 				20C8B1CE2C1718DE00D4E225 /* LaunchScreen.storyboard */,
 				20C8B1D12C1718DE00D4E225 /* Info.plist */,
@@ -164,7 +161,6 @@
 				677EAB4932A79B7CA5522393 /* Pods-ParisWeatherTests.debug.xcconfig */,
 				AFD2AAA57E1DB324B8BF865B /* Pods-ParisWeatherTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -179,7 +175,6 @@
 				20C8B1BC2C1718DD00D4E225 /* Sources */,
 				20C8B1BD2C1718DD00D4E225 /* Frameworks */,
 				20C8B1BE2C1718DD00D4E225 /* Resources */,
-				C5754908475B061F8C1A3B64 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -217,7 +212,6 @@
 				20C8B1DC2C1718DE00D4E225 /* Sources */,
 				20C8B1DD2C1718DE00D4E225 /* Frameworks */,
 				20C8B1DE2C1718DE00D4E225 /* Resources */,
-				C1029E780FA33549B0C455E2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -279,7 +273,6 @@
 			files = (
 				20C8B1CD2C1718DE00D4E225 /* Assets.xcassets in Resources */,
 				20C8B1D02C1718DE00D4E225 /* Base in Resources */,
-				20C8B1CB2C1718DD00D4E225 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,40 +335,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C1029E780FA33549B0C455E2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ParisWeather-ParisWeatherUITests/Pods-ParisWeather-ParisWeatherUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ParisWeather-ParisWeatherUITests/Pods-ParisWeather-ParisWeatherUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ParisWeather-ParisWeatherUITests/Pods-ParisWeather-ParisWeatherUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C5754908475B061F8C1A3B64 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ParisWeather/Pods-ParisWeather-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ParisWeather/Pods-ParisWeather-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ParisWeather/Pods-ParisWeather-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E2F8132C76E217299AAE861E /* [CP] Check Pods Manifest.lock */ = {
@@ -446,14 +405,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		20C8B1C92C1718DD00D4E225 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				20C8B1CA2C1718DD00D4E225 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		20C8B1CE2C1718DE00D4E225 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -597,7 +548,7 @@
 				INFOPLIST_FILE = ParisWeather/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -626,7 +577,7 @@
 				INFOPLIST_FILE = ParisWeather/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
