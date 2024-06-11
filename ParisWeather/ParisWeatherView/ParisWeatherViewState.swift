@@ -5,7 +5,6 @@ protocol ParisWeatherViewModelType: AnyObject {
     func transform(input:ParisWeatherViewInput) -> ParisWeatherViewModelOutput
 }
 
-
 enum ParisWeatherViewState {
     case idle
     case success([List])

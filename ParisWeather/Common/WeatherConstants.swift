@@ -5,4 +5,5 @@ struct WeatherConstants {
     static let forecastKey = "forecast"
     static let weatherKey = "weather"
     static let Country = "Paris"
+    
 }

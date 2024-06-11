@@ -25,7 +25,7 @@ class ParisWeatherViewModel: ParisWeatherViewModelType {
             .subscribe(onNext: { event in
                 switch event {
                 case .next(let weather):
-                    self.list = Array(weather.list.prefix(5))
+                    self.list =   weather.list
                     state.accept(.success(self.list))
                 case .error(let error):
                     state.accept(.failure(error.localizedDescription))

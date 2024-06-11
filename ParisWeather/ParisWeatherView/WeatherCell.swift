@@ -2,16 +2,57 @@ import UIKit
 import SnapKit
 
 class WeatherCell: UITableViewCell {
-    
     static let cellID = "WeatherCell"
     
+    private enum Constants {
+        enum Day {
+            static let font = UIFont.boldSystemFont(ofSize: 22)
+        }
+        enum MinMax {
+            static let font = UIFont.boldSystemFont(ofSize: 16)
+        }
+        enum Overall {
+            static let font = UIFont.boldSystemFont(ofSize: 12)
+        }
+        
+        static let iconSize: CGFloat = 80
+        
+    }
+    
     // UI Components
-    private let overlallLabel = UILabel()
-    private let minTemperatureLabel = UILabel()
-    private let maxTemperatureLabel = UILabel()
-    private let iconImageView = UIImageView()
-    private let dayNameLabel = UILabel()
-    private let backgroundImg = UIImageView()
+    private var overallLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.textAlignment = .center
+        label.font = Constants.Overall.font
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private var dayNameLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.textAlignment = .left
+        label.font = Constants.Day.font
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private var temperatureLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.textAlignment = .center
+        label.font = Constants.MinMax.font
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    
+    private var iconImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -21,9 +62,8 @@ class WeatherCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        overlallLabel.text = nil
-        minTemperatureLabel.text = nil
-        maxTemperatureLabel.text = nil
+        overallLabel.text = nil
+        temperatureLabel.text = nil
         dayNameLabel.text = nil
         cancelImageLoading()
     }
@@ -34,45 +74,33 @@ class WeatherCell: UITableViewCell {
     
     private func configConstraints(){
         
-        backgroundImg.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        dayNameLabel.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(Spacing.dayNameOffset)
+            make.centerY.equalToSuperview()
         }
         
         iconImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(5)
-            make.leading.equalToSuperview().offset(16)
-            make.centerY.centerY.equalToSuperview()
-            make.height.equalTo(100)
-            make.width.equalTo(120)
+            make.centerY.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.height.width.equalTo(Constants.iconSize)
         }
         
-        overlallLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
-            make.leading.greaterThanOrEqualTo(iconImageView.snp.trailing).offset(16)
+        temperatureLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalTo(iconImageView.snp.trailing).offset(Spacing.offset)
+            make.trailing.equalToSuperview().offset(Spacing.temperaturetrailing)
         }
         
-        // Set min temperature label constraints to the right side
-        maxTemperatureLabel.snp.makeConstraints { make in
-            make.top.equalTo(overlallLabel.snp.bottom).offset(8)
-            make.trailing.equalToSuperview().offset(-16)
-            make.leading.greaterThanOrEqualTo(iconImageView.snp.trailing).offset(16)
+        overallLabel.snp.makeConstraints { make in
+            make.top.equalTo(temperatureLabel.snp.bottom).offset(Spacing.overallOffset)
+            make.leading.equalTo(iconImageView.snp.trailing).offset(Spacing.offset)
+            make.trailing.equalToSuperview().offset(Spacing.overallTrailing)
         }
         
-        // Set min temperature label constraints to the right side
-        minTemperatureLabel.snp.makeConstraints { make in
-            make.top.equalTo(maxTemperatureLabel.snp.bottom).offset(8)
-            make.trailing.equalToSuperview().offset(-16)
-            make.leading.greaterThanOrEqualTo(iconImageView.snp.trailing).offset(16)
-            make.bottom.equalToSuperview().offset(-16)
-        }
     }
     
     private func setupUI() {
-        backgroundImg.contentMode = .scaleAspectFill
-        backgroundImg.clipsToBounds = true
-        
-        [backgroundImg, overlallLabel,minTemperatureLabel,iconImageView,maxTemperatureLabel].forEach { addSubview($0)}
+        [overallLabel,temperatureLabel,iconImageView, dayNameLabel].forEach { addSubview($0)}
         
     }
     
@@ -86,20 +114,12 @@ class WeatherCell: UITableViewCell {
     }
     
     func configure(with forecast: List) {
-        overlallLabel.text = forecast.weather.first?.description.rawValue
-        minTemperatureLabel.text = "Min Temp: \(forecast.main.tempMin.toCelsiusString()) °C"
-        maxTemperatureLabel.text = "Max Temp: \(forecast.main.tempKf.toCelsiusString()) °C"
         
-        let sunset = Calendar.current.date(bySettingHour: 18, minute: 0, second: 0, of: Date())!
-        let sunrise = Calendar.current.date(bySettingHour: 6, minute: 0, second: 0, of: Date())!
+        overallLabel.text = forecast.weather.first?.description.rawValue
+        temperatureLabel.text = "\(forecast.main.tempMin.toCelsiusString()) °C / \(forecast.main.tempMax.toCelsiusString()) °C"
         
-        let currentDate = Date()
-        let isNight = currentDate.isNightTime(sunrise: sunrise, sunset: sunset)
-        if let iconName = forecast.weather.first?.icon {
-            let suffix = isNight ? "n" : "d"
-            let iconURL = URL(string: "https://openweathermap.org/img/wn/\(iconName)\(suffix)@2x.png")
-            loadIconImage(from: iconURL)
-        }
+        let date = Date(timeIntervalSince1970: TimeInterval(forecast.dt))
+        dayNameLabel.text = date.dayOfWeek()
         
         if let iconName = forecast.weather.first?.icon {
             let iconURL = URL(string: "https://openweathermap.org/img/wn/\(iconName)@2x.png")
@@ -107,6 +127,5 @@ class WeatherCell: UITableViewCell {
                 iconImageView.image = UIImage(data: data)
             }
         }
-        
     }
 }

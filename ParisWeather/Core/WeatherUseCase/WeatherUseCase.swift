@@ -6,7 +6,6 @@ protocol WeatherUseCase {
 
 final class DefaultWeatherUseCase: WeatherUseCase {
 
-    
     private var apiClient: URLSessionAPIClient
     
     /// - Parameter apiClient: The API client for making network requests.

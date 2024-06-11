@@ -51,7 +51,6 @@ class URLSessionAPIClient: APIClientProtocol {
             }
             
             task.resume()
-            
             return Disposables.create {
                 task.cancel()
             }

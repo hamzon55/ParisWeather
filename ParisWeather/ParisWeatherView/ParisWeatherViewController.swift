@@ -31,6 +31,7 @@ class ParisWeatherViewController: UIViewController {
         tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(WeatherCell.self,
                            forCellReuseIdentifier: WeatherCell.cellID)
         view.addSubview(tableView)
@@ -42,22 +43,22 @@ class ParisWeatherViewController: UIViewController {
     }
     
     private func bindViewModel() {
-          let input = ParisWeatherViewInput(
-              appear: appearSubject.asObservable(),
-              selection: selectionSubject.asObservable()
-          )
-          
-          let output = viewModel.transform(input: input)
-          
+        let input = ParisWeatherViewInput(
+            appear: appearSubject.asObservable(),
+            selection: selectionSubject.asObservable()
+        )
+        
+        let output = viewModel.transform(input: input)
+        
         output.state
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] state in
-                            self?.handleState(state)
-                        })
-                        .disposed(by: disposeBag)
-                    
-                    appearSubject.onNext(())
-      }
+                self?.handleState(state)
+            })
+            .disposed(by: disposeBag)
+        
+        appearSubject.onNext(())
+    }
     
     
     private func handleState(_ state: ParisWeatherViewState) {
@@ -65,7 +66,6 @@ class ParisWeatherViewController: UIViewController {
            case .idle: 
                break
            case .success(let weatherResponse):
-               // Update the table view with the new weather data
                self.viewModel.list = weatherResponse
                tableView.reloadData()
            case .failure(let error):
@@ -75,12 +75,20 @@ class ParisWeatherViewController: UIViewController {
     
 }
 
-
+extension ParisWeatherViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+}
 
 extension ParisWeatherViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.list.count
     }
+    
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: WeatherCell.cellID, for: indexPath) as! WeatherCell
