@@ -5,5 +5,5 @@ struct WeatherConstants {
     static let forecastKey = "forecast"
     static let weatherKey = "weather"
     static let Country = "Paris"
-    static let imageURL = "https://openweathermap.org/img/wn/%@@2x.png"    
+    static let imageURL = "https://openweathermap.org/img/wn/%@@2x.png"  
 }

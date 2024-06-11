@@ -79,6 +79,11 @@ extension ParisWeatherViewController: UITableViewDelegate {
         return 100
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        coordinator?.navigateToHeroDetail(weather: viewModel.list[indexPath.row])
+    }
+    
 }
 
 extension ParisWeatherViewController: UITableViewDataSource {

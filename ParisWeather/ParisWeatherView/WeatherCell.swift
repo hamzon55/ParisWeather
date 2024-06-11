@@ -112,15 +112,16 @@ class WeatherCell: UITableViewCell {
     
     
     private func map(iconURLString: String?) -> URL? {
-           guard let iconURLString = iconURLString else { return nil }
-           let iconURL = String(format: WeatherConstants.imageURL, iconURLString)
-           return URL(string: iconURL)
-       }
+        guard let iconURLString = iconURLString else { return nil }
+        let iconURL = String(format: WeatherConstants.imageURL, iconURLString)
+        return URL(string: iconURL)
+    }
     
     func configure(with forecast: List) {
-        
+        let minTemp = forecast.main.tempMin.toCelsiusString()
+        let maxTemp = forecast.main.tempMax.toCelsiusString()
         overallLabel.text = forecast.weather.first?.description.rawValue
-        temperatureLabel.text = "\(forecast.main.tempMin.toCelsiusString()) °C / \(forecast.main.tempMax.toCelsiusString()) °C"
+        temperatureLabel.text = "\(minTemp) °C / \(maxTemp) °C"
         
         let date = Date(timeIntervalSince1970: TimeInterval(forecast.dt))
         dayNameLabel.text = date.dayOfWeek()
@@ -129,7 +130,7 @@ class WeatherCell: UITableViewCell {
             let iconURLString = "\(iconName)"
             if let iconURL = map(iconURLString: iconURLString) {
                 iconImageView.download(image: iconURL)
-                      }
+            }
         }
     }
 }

@@ -13,5 +13,11 @@ class MainCoordinator: Coordinator {
         viewController.coordinator = self
         navigationController.pushViewController(viewController, animated: false)
     }
+    
+    func navigateToHeroDetail(weather: List) {
+         let viewModel = WeatherDetailViewModel(weatherItem: weather)
+         let detailViewController =  WeatherDetailViewController(viewModel: viewModel)
+        navigationController.pushViewController(detailViewController, animated: true)
+      }
 }
 
