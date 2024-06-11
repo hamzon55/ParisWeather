@@ -8,6 +8,17 @@ class WeatherDetailViewController: UIViewController {
     private let viewModel: WeatherDetailViewModel
     private let appearSubject = PublishSubject<Void>()
     private let disposeBag = DisposeBag()
+
+    private let weatherView = WeatherView()
+    
+    private lazy var verticaltackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [
+            weatherView
+        ])
+        stackView.axis = .vertical
+        stackView.spacing = 30
+        return stackView
+    }()
     
     init(viewModel: WeatherDetailViewModel) {
         self.viewModel = viewModel
@@ -25,12 +36,14 @@ class WeatherDetailViewController: UIViewController {
     }
     
     private func updateUI(){
-        view.addSubview(label)
+        view.addSubview(verticaltackView)
         self.view.backgroundColor = .white
-        label.textColor = .green
-        label.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.centerX.equalToSuperview()
+        verticaltackView.snp.makeConstraints { make in
+            make.leading.equalTo(view.snp.leadingMargin).offset(15)
+            make.trailing.equalTo(view.snp.trailingMargin).offset(-15)
+            make.bottom.equalTo(view.snp.bottomMargin).offset(-15)
+            make.top.equalTo(view.snp.topMargin).offset(15)
+
         }
     }
     
