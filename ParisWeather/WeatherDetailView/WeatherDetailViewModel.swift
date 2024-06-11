@@ -8,9 +8,9 @@ class WeatherDetailViewModel: WeatherDetailViewModelType {
     
     
     private let disposeBag = DisposeBag()
-    private let weatherItem: List
+    private let weatherItem: WeatherDetail
     
-    init(weatherItem: List) {
+    init(weatherItem: WeatherDetail) {
         self.weatherItem = weatherItem
     }
     

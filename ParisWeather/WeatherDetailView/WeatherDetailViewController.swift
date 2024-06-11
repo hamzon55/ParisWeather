@@ -39,10 +39,10 @@ class WeatherDetailViewController: UIViewController {
         view.addSubview(verticaltackView)
         self.view.backgroundColor = .white
         verticaltackView.snp.makeConstraints { make in
-            make.leading.equalTo(view.snp.leadingMargin).offset(15)
-            make.trailing.equalTo(view.snp.trailingMargin).offset(-15)
-            make.bottom.equalTo(view.snp.bottomMargin).offset(-15)
-            make.top.equalTo(view.snp.topMargin).offset(15)
+            make.leading.equalTo(view.snp.leadingMargin).offset(20)
+            make.trailing.equalTo(view.snp.trailingMargin).offset(-20)
+            make.bottom.equalTo(view.snp.bottomMargin).offset(-20)
+            make.top.equalTo(view.snp.topMargin).offset(5)
 
         }
     }
@@ -71,7 +71,7 @@ class WeatherDetailViewController: UIViewController {
         case .idle:
             break
         case .success(let weatherDetails):
-            label.text = weatherDetails.dtTxt
+            weatherView.apply(weatherElemt: weatherDetails)
         case .failure(let error):
             debugPrint(error)
         }

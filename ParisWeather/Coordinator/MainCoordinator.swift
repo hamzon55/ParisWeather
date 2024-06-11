@@ -14,9 +14,9 @@ class MainCoordinator: Coordinator {
         navigationController.pushViewController(viewController, animated: false)
     }
     
-    func navigateToHeroDetail(weather: List) {
-         let viewModel = WeatherDetailViewModel(weatherItem: weather)
-         let detailViewController =  WeatherDetailViewController(viewModel: viewModel)
+    func navigateToWeatherDetail(weatherDetail: WeatherDetail) {
+       let viewModel = WeatherDetailViewModel(weatherItem: weatherDetail)
+        let detailViewController =  WeatherDetailViewController(viewModel: viewModel)
         navigationController.pushViewController(detailViewController, animated: true)
       }
 }

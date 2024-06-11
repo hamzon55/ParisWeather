@@ -140,12 +140,20 @@
 		200942992C187AD5009CAC98 /* WeatherDetailView */ = {
 			isa = PBXGroup;
 			children = (
+				200942A22C18DD01009CAC98 /* Views */,
 				2009429A2C187AEF009CAC98 /* WeatherDetailViewController.swift */,
 				2009429C2C187B01009CAC98 /* WeatherDetailViewModel.swift */,
 				2009429E2C187B09009CAC98 /* WeatherDetailViewState.swift */,
-				200942A02C187B11009CAC98 /* WeatherView.swift */,
 			);
 			path = WeatherDetailView;
+			sourceTree = "<group>";
+		};
+		200942A22C18DD01009CAC98 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				200942A02C187B11009CAC98 /* WeatherView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		205549E92C17231A00601EC5 /* Core */ = {

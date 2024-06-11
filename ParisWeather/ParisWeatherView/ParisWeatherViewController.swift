@@ -64,7 +64,7 @@ class ParisWeatherViewController: UIViewController {
            case .idle: 
                break
            case .success(let weatherResponse):
-               self.viewModel.list = weatherResponse
+               self.viewModel.weatherDetails = weatherResponse
                tableView.reloadData()
            case .failure(let error):
                debugPrint(error)
@@ -88,12 +88,12 @@ extension ParisWeatherViewController: UITableViewDelegate {
 
 extension ParisWeatherViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.list.count
+        return viewModel.weatherDetails.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: WeatherCell.cellID, for: indexPath) as! WeatherCell
-        let weatherList = viewModel.list[indexPath.row]
+        let weatherList = viewModel.weatherDetails[indexPath.row]
         cell.configure(with: weatherList)
         cell.backgroundColor = UIColor { traitCollection in
             return traitCollection.userInterfaceStyle == .dark ? .black : .white

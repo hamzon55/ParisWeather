@@ -93,3 +93,8 @@ struct Wind: Codable {
     let deg: Int
     let gust: Double
 }
+
+struct WeatherDetail {
+    let city: City
+    let weatherItem: List
+}

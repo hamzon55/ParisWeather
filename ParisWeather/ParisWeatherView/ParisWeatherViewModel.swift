@@ -10,8 +10,8 @@ class ParisWeatherViewModel: ParisWeatherViewModelType {
     private let useCase: WeatherUseCase
     private let coordinator: MainCoordinator
 
-    var list: [List] = []
- 
+    var weatherDetails: [WeatherDetail] = []
+    
     init(useCase: WeatherUseCase, coordinator: MainCoordinator) {
         self.useCase = useCase
         self.coordinator = coordinator
@@ -29,8 +29,8 @@ class ParisWeatherViewModel: ParisWeatherViewModelType {
             .subscribe(onNext: { event in
                 switch event {
                 case .next(let weather):
-                    self.list =   weather.list
-                    state.accept(.success(self.list))
+                    self.weatherDetails = weather.list.map { WeatherDetail(city: weather.city, weatherItem: $0) }
+                    state.accept(.success(self.weatherDetails))
                 case .error(let error):
                     state.accept(.failure(error.localizedDescription))
                 case .completed:
@@ -40,19 +40,19 @@ class ParisWeatherViewModel: ParisWeatherViewModelType {
             .disposed(by: disposeBag)
         
         input.selection
-            .withLatestFrom(state) { (index, state) -> ParisWeatherViewState? in
-                switch state {
-                case .success(let lists):
-                    guard lists.indices.contains(index) else {
-                        return nil
+                    .withLatestFrom(state) { (index, state) -> ParisWeatherViewState? in
+                        switch state {
+                        case .success(let weatherDetails):
+                            guard weatherDetails.indices.contains(index) else {
+                                return nil
+                            }
+                            let selectedDetail = weatherDetails[index]
+                            self.coordinator.navigateToWeatherDetail(weatherDetail: selectedDetail)
+                            return state
+                        default:
+                            return nil
+                        }
                     }
-                    let selectedList = lists[index]
-                    self.coordinator.navigateToHeroDetail(weather: selectedList)     
-                    return state
-                default:
-                    return nil
-                }
-            }
             .compactMap { $0 }
             .bind(to: state)
             .disposed(by: disposeBag)

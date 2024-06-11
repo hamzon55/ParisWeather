@@ -7,7 +7,7 @@ protocol ParisWeatherViewModelType: AnyObject {
 
 enum ParisWeatherViewState {
     case idle
-    case success([List])
+    case success([WeatherDetail])
     case failure(String)
 }
 
