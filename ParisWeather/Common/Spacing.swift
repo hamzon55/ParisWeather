@@ -7,5 +7,3 @@ enum Spacing {
     static let overallOffset: CGFloat = 10
     static let overallTrailing: CGFloat = -16
 }
-
-

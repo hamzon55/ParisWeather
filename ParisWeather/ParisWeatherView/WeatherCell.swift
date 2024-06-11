@@ -1,5 +1,6 @@
 import UIKit
 import SnapKit
+import Kingfisher
 
 class WeatherCell: UITableViewCell {
     static let cellID = "WeatherCell"
@@ -65,7 +66,7 @@ class WeatherCell: UITableViewCell {
         overallLabel.text = nil
         temperatureLabel.text = nil
         dayNameLabel.text = nil
-        cancelImageLoading()
+        iconImageView.cancelDownloading()
     }
     
     required init?(coder: NSCoder) {
@@ -104,14 +105,17 @@ class WeatherCell: UITableViewCell {
         
     }
     
-    private func cancelImageLoading() {
-        iconImageView.image = nil
-    }
-    
     private func loadIconImage(from url: URL?) {
         guard let url = url, let data = try? Data(contentsOf: url) else { return }
         iconImageView.image = UIImage(data: data)
     }
+    
+    
+    private func map(iconURLString: String?) -> URL? {
+           guard let iconURLString = iconURLString else { return nil }
+           let iconURL = String(format: WeatherConstants.imageURL, iconURLString)
+           return URL(string: iconURL)
+       }
     
     func configure(with forecast: List) {
         
@@ -122,10 +126,10 @@ class WeatherCell: UITableViewCell {
         dayNameLabel.text = date.dayOfWeek()
         
         if let iconName = forecast.weather.first?.icon {
-            let iconURL = URL(string: "https://openweathermap.org/img/wn/\(iconName)@2x.png")
-            if let data = try? Data(contentsOf: iconURL!) {
-                iconImageView.image = UIImage(data: data)
-            }
+            let iconURLString = "\(iconName)"
+            if let iconURL = map(iconURLString: iconURLString) {
+                iconImageView.download(image: iconURL)
+                      }
         }
     }
 }

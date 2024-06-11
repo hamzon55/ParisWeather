@@ -29,7 +29,7 @@ class ParisWeatherViewController: UIViewController {
     
     private func setupUI() {
         tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.translatesAutoresizingMaskIntoConstraints = true
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(WeatherCell.self,
@@ -47,9 +47,7 @@ class ParisWeatherViewController: UIViewController {
             appear: appearSubject.asObservable(),
             selection: selectionSubject.asObservable()
         )
-        
         let output = viewModel.transform(input: input)
-        
         output.state
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] state in
@@ -87,8 +85,6 @@ extension ParisWeatherViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.list.count
     }
-    
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: WeatherCell.cellID, for: indexPath) as! WeatherCell
