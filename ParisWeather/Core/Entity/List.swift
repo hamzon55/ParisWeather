@@ -1,22 +1,15 @@
+// MARK: - List
 struct List: Codable {
     let dt: Int
     let main: MainClass
     let weather: [Weather]
-    let clouds: Clouds
     let wind: Wind
-    let visibility: Int
     let dtTxt: String
     
     enum CodingKeys: String, CodingKey {
-        case dt, main, weather, clouds, wind, visibility
+        case dt, main, weather, wind
         case dtTxt = "dt_txt"
     }
-}
-
-
-// MARK: - Clouds
-struct Clouds: Codable {
-    let all: Int
 }
 
 // MARK: - MainClass
@@ -66,9 +59,4 @@ struct Wind: Codable {
     let speed: Double
     let deg: Int
     let gust: Double
-}
-
-struct WeatherDetail {
-    let city: City
-    let weatherItem: List
 }

@@ -15,7 +15,7 @@ final class DefaultWeatherUseCase: WeatherUseCase {
     
     /// Retrieves the current weather based on the provided city.
     ///
-    /// - Returns: An observable emitting `Weather` or an `APIError` if an error occurs.
+    /// - Returns: An observable emitting Weather
     func getFiveDayForecast(city: String) -> Observable<WeatherDataModel> {
             return apiClient.request(WeatherEndpoint.fiveDayForecast(city: city))
                 .catch { error in

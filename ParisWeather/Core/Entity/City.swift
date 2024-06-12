@@ -1,5 +1,3 @@
-import Foundation
-
 // MARK: - City
 struct City: Codable {
     let id: Int
