@@ -9,22 +9,21 @@ class WeatherCell: UITableViewCell {
         enum Day {
             static let font = UIFont.boldSystemFont(ofSize: 22)
         }
-        enum MinMax {
-            static let font = UIFont.boldSystemFont(ofSize: 16)
+        enum Temperature {
+            static let font = UIFont.boldSystemFont(ofSize: 14)
         }
         enum Overall {
-            static let font = UIFont.boldSystemFont(ofSize: 12)
+            static let font = UIFont.boldSystemFont(ofSize: 10)
         }
         
         static let iconSize: CGFloat = 80
         
     }
     
-    // UI Components
     private var overallLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        label.textAlignment = .center
+        label.textColor = .darkGray
+        label.textAlignment = .left
         label.font = Constants.Overall.font
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -42,8 +41,8 @@ class WeatherCell: UITableViewCell {
     private var temperatureLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.textAlignment = .center
-        label.font = Constants.MinMax.font
+        label.textAlignment = .right
+        label.font = Constants.Temperature.font
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -82,31 +81,29 @@ class WeatherCell: UITableViewCell {
         
         iconImageView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.centerX.equalToSuperview()
+            make.leading.equalTo(temperatureLabel.snp.trailing).offset(Spacing.offset)
             make.height.width.equalTo(Constants.iconSize)
+            make.trailing.equalToSuperview().offset(Spacing.temperaturetrailing)
+            
         }
         
         temperatureLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalTo(iconImageView.snp.trailing).offset(Spacing.offset)
-            make.trailing.equalToSuperview().offset(Spacing.temperaturetrailing)
+            make.trailing.equalTo(iconImageView.snp.leading).offset(-Spacing.offsetStandard)
+            
         }
         
         overallLabel.snp.makeConstraints { make in
-            make.top.equalTo(temperatureLabel.snp.bottom).offset(Spacing.overallOffset)
-            make.leading.equalTo(iconImageView.snp.trailing).offset(Spacing.offset)
-            make.trailing.equalToSuperview().offset(Spacing.overallTrailing)
+            make.top.equalTo(dayNameLabel.snp.bottom).offset(Spacing.topOffset)
+            make.left.equalTo(dayNameLabel).offset(Spacing.offsetStandard)
         }
-        
     }
     
     private func setupUI() {
         [overallLabel,temperatureLabel,iconImageView, dayNameLabel].forEach { addSubview($0)}
-        
     }
     
-    
-     func map(iconURLString: String?) -> URL? {
+    func map(iconURLString: String?) -> URL? {
         guard let iconURLString = iconURLString else { return nil }
         let iconURL = String(format: WeatherConstants.imageURL, iconURLString)
         return URL(string: iconURL)
