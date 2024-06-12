@@ -6,4 +6,10 @@ struct WeatherConstants {
     static let weatherKey = "weather"
     static let Country = "Paris"
     static let imageURL = "https://openweathermap.org/img/wn/%@@2x.png"  
+    
+    enum Wind {
+       static let title = "Wind Information:"
+       static let speed = "Speed: %.2f"
+       static let gust = "Gust: %.2f"
+    }
 }

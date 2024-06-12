@@ -12,7 +12,7 @@ class WeatherView: UIView {
             static let font = UIFont.boldSystemFont(ofSize: 55)
         }
         enum Overall {
-            static let font = UIFont.boldSystemFont(ofSize: 20)
+            static let font = UIFont.boldSystemFont(ofSize: 14)
         }
         enum MinMax {
             static let font = UIFont.boldSystemFont(ofSize: 18)
@@ -65,7 +65,7 @@ class WeatherView: UIView {
     }
     
     private func layout(){
-        backgroundColor = .white
+        backgroundColor = .green
         addSubview(locationLabel)
         addSubview(weatherImageView)
         addSubview(temperatureLabel)
@@ -76,19 +76,19 @@ class WeatherView: UIView {
             make.centerX.equalToSuperview()
         }
         
-        weatherImageView.snp.makeConstraints { make in
-            make.top.equalTo(locationLabel.snp.bottom).offset(24)
-            make.trailing.equalToSuperview().offset(-50)
-            make.height.equalTo(100)
-            make.width.equalTo(100)
+        temperatureLabel.snp.makeConstraints { make in
+            make.top.equalTo(locationLabel.snp.bottom).offset(15)
+            make.leading.equalTo(weatherImageView.snp.trailing).offset(15)
+            make.centerY.equalTo(weatherImageView.snp.centerY)
+            make.height.equalTo(weatherImageView)
             
         }
         
-        temperatureLabel.snp.makeConstraints { make in
+        weatherImageView.snp.makeConstraints { make in
             make.top.equalTo(locationLabel.snp.bottom).offset(24)
-            make.leading.equalToSuperview().offset(35)
-            make.height.equalTo(100)
-            
+            make.trailing.equalTo(temperatureLabel.snp.leading).offset(-15)
+            make.leading.equalToSuperview().offset(65)
+
         }
         
         overallLabel.snp.makeConstraints { make in

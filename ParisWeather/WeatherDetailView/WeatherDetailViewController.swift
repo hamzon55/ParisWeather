@@ -10,13 +10,16 @@ class WeatherDetailViewController: UIViewController {
     private let disposeBag = DisposeBag()
 
     private let weatherView = WeatherView()
-    
+    private let windView = WindView()
+
     private lazy var verticaltackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
-            weatherView
+            weatherView,
+            windView
         ])
         stackView.axis = .vertical
-        stackView.spacing = 30
+        stackView.distribution  = .fillEqually
+        stackView.spacing = 10
         return stackView
     }()
     
@@ -72,6 +75,7 @@ class WeatherDetailViewController: UIViewController {
             break
         case .success(let weatherDetails):
             weatherView.apply(weatherElemt: weatherDetails)
+            windView.apply(weatherElemt: weatherDetails)
         case .failure(let error):
             debugPrint(error)
         }
