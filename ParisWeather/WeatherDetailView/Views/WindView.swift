@@ -11,56 +11,49 @@ class WindView: UIView {
             static let font = UIFont.boldSystemFont(ofSize: 18)
         }
     }
-    private var speedLabel: UILabel = {
-       let label = UILabel()
-       label.textColor = .black
-       label.font = Constants.Text.font
-        label.textAlignment = .center
-       label.translatesAutoresizingMaskIntoConstraints = false
-       return label
-    }()
     
-    private var gustLabel: UILabel = {
-       let label = UILabel()
-       label.textColor = .black
-       label.font = Constants.Text.font
-       label.textAlignment = .center
-       label.translatesAutoresizingMaskIntoConstraints = false
-       return label
-    }()
-    
+    private let tableView = UITableView()
+    private var hourlyForecasts: [List] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     init() {
         super.init(frame: .zero)
-        layout()
+        setupUI()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func layout(){
-        backgroundColor = .green
-        addSubview(speedLabel)
-        addSubview(gustLabel)
-        
-        speedLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-30)
-            
+    private func setupUI() {
+        addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
-        
-        gustLabel.snp.makeConstraints { make in
-            make.top.equalTo(speedLabel.snp.bottom).offset(20)
-            make.trailing.equalToSuperview().offset(-30)
-            
-        }
-        
+        tableView.dataSource = self
+        tableView.register(HourlyForecastCell.self, forCellReuseIdentifier: HourlyForecastCell.cellID)
     }
     
-    func apply(weatherElemt: WeatherDetail) {
-        let wind = weatherElemt.weatherItem.wind
-        speedLabel.text  =  String(format: WeatherConstants.Wind.speed, wind.speed)
-        gustLabel.text = String(format: WeatherConstants.Wind.gust, wind.gust)
+    func apply(hourlyForecasts: [List]) {
+        self.hourlyForecasts = hourlyForecasts
+    }
+}
+
+extension WindView: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return hourlyForecasts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: HourlyForecastCell.cellID, for: indexPath) as? HourlyForecastCell else {
+            return UITableViewCell()
+        }
+        let forecast = hourlyForecasts[indexPath.row]
+        cell.configure(with: forecast)
+        return cell
     }
 }
