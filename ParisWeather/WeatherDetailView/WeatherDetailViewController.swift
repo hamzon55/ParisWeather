@@ -67,12 +67,13 @@ class WeatherDetailViewController: UIViewController {
     private func handleState(_ state: WeatherDetailViewState) {
         switch state {
         case .idle:
-            break
+            showLoadingView()
         case .success(let weatherDetail, let foreCast):
+            hideLoadingView()
             weatherView.apply(weatherElement: weatherDetail)
             windView.apply(hourlyForecasts: foreCast)
         case .failure(let error):
-            debugPrint(error)
+            hideLoadingView()
         }
     }
 }

@@ -67,12 +67,13 @@ class ParisWeatherViewController: UIViewController {
     private func handleState(_ state: ParisWeatherViewState) {
         switch state {
         case .idle:
-            break
+            showLoadingView()
         case .success(let weatherResponse):
+            hideLoadingView()
             self.viewModel.weatherDetailsList = weatherResponse
             tableView.reloadData()
         case .failure(let error):
-            debugPrint(error)
+            hideLoadingView()
         }
     }
 }

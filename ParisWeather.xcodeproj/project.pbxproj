@@ -42,6 +42,8 @@
 		20C07BE22C1B61E40070D202 /* ST_WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C07BE12C1B61E40070D202 /* ST_WeatherView.swift */; };
 		20C07BE42C1B61F70070D202 /* ST_WindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C07BE32C1B61F70070D202 /* ST_WindView.swift */; };
 		20C07BE62C1B620B0070D202 /* ST_HourlyForeCastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C07BE52C1B620B0070D202 /* ST_HourlyForeCastView.swift */; };
+		20C07BEA2C1B916A0070D202 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C07BE92C1B916A0070D202 /* LoadingView.swift */; };
+		20C07BEC2C1B92690070D202 /* UIViewController+Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C07BEB2C1B92690070D202 /* UIViewController+Loader.swift */; };
 		20C8B1C42C1718DD00D4E225 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8B1C32C1718DD00D4E225 /* AppDelegate.swift */; };
 		20C8B1C62C1718DD00D4E225 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8B1C52C1718DD00D4E225 /* SceneDelegate.swift */; };
 		20C8B1C82C1718DD00D4E225 /* ParisWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8B1C72C1718DD00D4E225 /* ParisWeatherViewController.swift */; };
@@ -109,6 +111,8 @@
 		20C07BE12C1B61E40070D202 /* ST_WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ST_WeatherView.swift; sourceTree = "<group>"; };
 		20C07BE32C1B61F70070D202 /* ST_WindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ST_WindView.swift; sourceTree = "<group>"; };
 		20C07BE52C1B620B0070D202 /* ST_HourlyForeCastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ST_HourlyForeCastView.swift; sourceTree = "<group>"; };
+		20C07BE92C1B916A0070D202 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		20C07BEB2C1B92690070D202 /* UIViewController+Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Loader.swift"; sourceTree = "<group>"; };
 		20C8B1C02C1718DD00D4E225 /* ParisWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParisWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20C8B1C32C1718DD00D4E225 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20C8B1C52C1718DD00D4E225 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -202,6 +206,8 @@
 				200942952C18653A009CAC98 /* Spacing.swift */,
 				200942972C186D4B009CAC98 /* UIImageView+Download.swift */,
 				20C07BCC2C1A6A990070D202 /* String+Url.swift */,
+				20C07BE92C1B916A0070D202 /* LoadingView.swift */,
+				20C07BEB2C1B92690070D202 /* UIViewController+Loader.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -636,6 +642,8 @@
 				20554A122C17C7AA00601EC5 /* Date+dayOfWeek.swift in Sources */,
 				2009429F2C187B09009CAC98 /* WeatherDetailViewState.swift in Sources */,
 				205549FC2C1733FE00601EC5 /* City.swift in Sources */,
+				20C07BEC2C1B92690070D202 /* UIViewController+Loader.swift in Sources */,
+				20C07BEA2C1B916A0070D202 /* LoadingView.swift in Sources */,
 				2009429B2C187AEF009CAC98 /* WeatherDetailViewController.swift in Sources */,
 				20554A072C174E0600601EC5 /* WeatherCell.swift in Sources */,
 				205549F42C172DE400601EC5 /* WeatherConstants.swift in Sources */,
