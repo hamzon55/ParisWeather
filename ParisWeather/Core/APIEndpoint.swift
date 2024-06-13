@@ -7,13 +7,11 @@ protocol APIEndpoint {
     var parameters: [String: Any]? { get }
     var headers: [String: String]? { get }
     var method: HTTPMethod { get }
-
 }
 
 enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
-
 }
 
 enum APIError: Error {

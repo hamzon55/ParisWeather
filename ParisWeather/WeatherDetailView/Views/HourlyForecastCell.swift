@@ -9,7 +9,7 @@ class HourlyForecastCell: UITableViewCell {
     private let timeLabel = UILabel()
     private let windSpeedLabel = UILabel()
     private let iconView = UIImageView()
-    let iconSize: CGFloat = 20
+    let iconSize: CGFloat = 50
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -23,8 +23,7 @@ class HourlyForecastCell: UITableViewCell {
     private func setupUI() {
         
         iconView.snp.makeConstraints { make in
-            make.height.width.equalTo(50)
-            
+            make.height.width.equalTo(iconSize)
         }
         
         let stackView = UIStackView(arrangedSubviews: [timeLabel,
@@ -36,7 +35,7 @@ class HourlyForecastCell: UITableViewCell {
         addSubview(stackView)
         
         stackView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(10)
+            make.edges.equalToSuperview().inset(Spacing.topOffset)
         }
     }
     

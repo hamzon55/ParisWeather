@@ -11,4 +11,3 @@ extension UIImageView {
         kf.setImage(with: url)
     }
 }
-

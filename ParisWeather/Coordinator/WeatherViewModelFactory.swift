@@ -7,4 +7,3 @@ class WeatherViewModelFactory {
         return .init(useCase: weatherUseCase, coordinator: coordinator)
     }
 }
-

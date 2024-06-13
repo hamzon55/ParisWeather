@@ -7,4 +7,3 @@ extension String {
         return URL(string: iconURL)
     }
 }
-

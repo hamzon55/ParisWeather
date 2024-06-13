@@ -21,26 +21,21 @@ class URLSessionAPIClient: APIClientProtocol {
             }
             var request = URLRequest(url: components?.url ?? url)
             request.httpMethod = endpoint.method.rawValue
-            
             endpoint.headers?.forEach { request.addValue($0.value, forHTTPHeaderField: $0.key) }
-            
             let task = self.session.dataTask(with: request) { data, response, error in
                 if let error = error {
                     observer.onError(APIError.networkError(error))
                     return
                 }
-                
                 guard let httpResponse = response as? HTTPURLResponse,
                       (200...299).contains(httpResponse.statusCode) else {
                     observer.onError(APIError.invalidResponse)
                     return
                 }
-                
                 guard let data = data else {
                     observer.onError(APIError.invalidResponse)
                     return
                 }
-                
                 do {
                     let decodedData = try JSONDecoder().decode(T.self, from: data)
                     observer.onNext(decodedData)
@@ -49,7 +44,6 @@ class URLSessionAPIClient: APIClientProtocol {
                     observer.onError(APIError.networkError(error))
                 }
             }
-            
             task.resume()
             return Disposables.create {
                 task.cancel()
