@@ -39,6 +39,9 @@
 		20C07BD12C1B3D810070D202 /* DefaultWeatherUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C07BD02C1B3D810070D202 /* DefaultWeatherUseCaseTests.swift */; };
 		20C07BD32C1B42CB0070D202 /* MockWeatherDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C07BD22C1B42CB0070D202 /* MockWeatherDataModel.swift */; };
 		20C07BE02C1B5DCD0070D202 /* ST_WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C07BDF2C1B5DCD0070D202 /* ST_WeatherCell.swift */; };
+		20C07BE22C1B61E40070D202 /* ST_WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C07BE12C1B61E40070D202 /* ST_WeatherView.swift */; };
+		20C07BE42C1B61F70070D202 /* ST_WindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C07BE32C1B61F70070D202 /* ST_WindView.swift */; };
+		20C07BE62C1B620B0070D202 /* ST_HourlyForeCastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C07BE52C1B620B0070D202 /* ST_HourlyForeCastView.swift */; };
 		20C8B1C42C1718DD00D4E225 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8B1C32C1718DD00D4E225 /* AppDelegate.swift */; };
 		20C8B1C62C1718DD00D4E225 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8B1C52C1718DD00D4E225 /* SceneDelegate.swift */; };
 		20C8B1C82C1718DD00D4E225 /* ParisWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8B1C72C1718DD00D4E225 /* ParisWeatherViewController.swift */; };
@@ -103,6 +106,9 @@
 		20C07BD02C1B3D810070D202 /* DefaultWeatherUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultWeatherUseCaseTests.swift; sourceTree = "<group>"; };
 		20C07BD22C1B42CB0070D202 /* MockWeatherDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWeatherDataModel.swift; sourceTree = "<group>"; };
 		20C07BDF2C1B5DCD0070D202 /* ST_WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ST_WeatherCell.swift; sourceTree = "<group>"; };
+		20C07BE12C1B61E40070D202 /* ST_WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ST_WeatherView.swift; sourceTree = "<group>"; };
+		20C07BE32C1B61F70070D202 /* ST_WindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ST_WindView.swift; sourceTree = "<group>"; };
+		20C07BE52C1B620B0070D202 /* ST_HourlyForeCastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ST_HourlyForeCastView.swift; sourceTree = "<group>"; };
 		20C8B1C02C1718DD00D4E225 /* ParisWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParisWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20C8B1C32C1718DD00D4E225 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20C8B1C52C1718DD00D4E225 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -261,6 +267,9 @@
 			isa = PBXGroup;
 			children = (
 				20C07BDF2C1B5DCD0070D202 /* ST_WeatherCell.swift */,
+				20C07BE12C1B61E40070D202 /* ST_WeatherView.swift */,
+				20C07BE32C1B61F70070D202 /* ST_WindView.swift */,
+				20C07BE52C1B620B0070D202 /* ST_HourlyForeCastView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -640,13 +649,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20C07BE22C1B61E40070D202 /* ST_WeatherView.swift in Sources */,
 				20C8B1DB2C1718DE00D4E225 /* ParisWeatherTests.swift in Sources */,
+				20C07BE42C1B61F70070D202 /* ST_WindView.swift in Sources */,
 				20C07BCF2C1B3CE00070D202 /* MockURLSessionAPIClient.swift in Sources */,
 				20C07BD12C1B3D810070D202 /* DefaultWeatherUseCaseTests.swift in Sources */,
 				20C07BC82C1A68500070D202 /* MockNavigationController.swift in Sources */,
 				20C07BD32C1B42CB0070D202 /* MockWeatherDataModel.swift in Sources */,
 				20C07BE02C1B5DCD0070D202 /* ST_WeatherCell.swift in Sources */,
 				20C07BCB2C1A68920070D202 /* MainCoordinatorTests.swift in Sources */,
+				20C07BE62C1B620B0070D202 /* ST_HourlyForeCastView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
