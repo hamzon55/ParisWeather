@@ -36,7 +36,7 @@ class WeatherCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
     private var temperatureLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
@@ -63,6 +63,7 @@ class WeatherCell: UITableViewCell {
         overallLabel.text = nil
         temperatureLabel.text = nil
         dayNameLabel.text = nil
+        
         iconImageView.cancelDownloading()
     }
     

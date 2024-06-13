@@ -5,13 +5,17 @@ import SnapKit
 
 class ParisWeatherViewController: UIViewController {
     
+    struct TableViewHeight {
+        static let rowHeight: CGFloat = 100.0
+    }
+    
     private let disposeBag = DisposeBag()
     private let viewModel: ParisWeatherViewModel
     private let appearSubject = PublishSubject<Void>()
     private let selectionSubject = PublishSubject<Int>()
     private var tableView: UITableView!
     var coordinator: MainCoordinator?
-
+    
     init(viewModel: ParisWeatherViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -60,23 +64,23 @@ class ParisWeatherViewController: UIViewController {
     
     
     private func handleState(_ state: ParisWeatherViewState) {
-           switch state {
-           case .idle: 
-               break
-           case .success(let weatherResponse):
-               self.viewModel.weatherDetails = weatherResponse
-               tableView.reloadData()
-           case .failure(let error):
-               debugPrint(error)
-           }
-       }
+        switch state {
+        case .idle:
+            break
+        case .success(let weatherResponse):
+            self.viewModel.weatherDetailsList = weatherResponse
+            tableView.reloadData()
+        case .failure(let error):
+            debugPrint(error)
+        }
+    }
     
 }
 
 extension ParisWeatherViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return TableViewHeight.rowHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -88,13 +92,14 @@ extension ParisWeatherViewController: UITableViewDelegate {
 
 extension ParisWeatherViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.weatherDetails.count
+        guard let weatherList = viewModel.weatherDetailsList?.list.count else { return 0 }
+        return weatherList
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: WeatherCell.cellID, for: indexPath) as! WeatherCell
-        let weatherList = viewModel.weatherDetails[indexPath.row]
-        cell.configure(with: weatherList)
+        let weatherList = viewModel.weatherDetailsList?.list[indexPath.row]
+        cell.configure(with: weatherList!)
         cell.backgroundColor = UIColor { traitCollection in
             return traitCollection.userInterfaceStyle == .dark ? .black : .white
         }

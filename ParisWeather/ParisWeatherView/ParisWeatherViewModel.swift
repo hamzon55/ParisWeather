@@ -10,7 +10,7 @@ class ParisWeatherViewModel: ParisWeatherViewModelType {
     private let useCase: WeatherUseCase
     private let coordinator: MainCoordinator
     
-    var weatherDetails: [WeatherDetail] = []
+    var weatherDetailsList: WeatherDataModel?
     
     init(useCase: WeatherUseCase, coordinator: MainCoordinator) {
         self.useCase = useCase
@@ -28,9 +28,10 @@ class ParisWeatherViewModel: ParisWeatherViewModelType {
             }
             .subscribe(onNext: { event in
                 switch event {
-                case .next(let weather):
-                    self.weatherDetails = self.filterAndGroupByDay(weather: weather)
-                    state.accept(.success(self.weatherDetails))
+                case .next(let weatherData):
+                    self.weatherDetailsList = weatherData
+                    let fiveDayForecast = self.processFiveDayForecast(weatherData: weatherData)
+                    state.accept(.success(fiveDayForecast))
                 case .error(let error):
                     state.accept(.failure(error.localizedDescription))
                 case .completed:
@@ -43,11 +44,13 @@ class ParisWeatherViewModel: ParisWeatherViewModelType {
             .withLatestFrom(state) { (index, state) -> ParisWeatherViewState? in
                 switch state {
                 case .success(let weatherDetails):
-                    guard weatherDetails.indices.contains(index) else {
+                    guard weatherDetails.list.indices.contains(index) else {
                         return nil
                     }
-                    let selectedDetail = weatherDetails[index]
-                    self.coordinator.navigateToWeatherDetail(weatherDetail: selectedDetail)
+                    let selectedDetail = self.weatherDetailsList?.list[index]
+                    if let weatherData = self.weatherDetailsList {
+                        self.coordinator.navigateToWeatherDetail(weatherDetail: selectedDetail!, weatherData: weatherData)
+                    }
                     return state
                 default:
                     return nil
@@ -60,23 +63,33 @@ class ParisWeatherViewModel: ParisWeatherViewModelType {
         return ParisWeatherViewModelOutput(state: state.asObservable())
     }
     
-    private func filterAndGroupByDay(weather: WeatherDataModel) -> [WeatherDetail] {
-        var groupedDetails = [WeatherDetail]()
+    private func processFiveDayForecast(weatherData: WeatherDataModel) -> WeatherDataModel {
         let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        var dailyForecasts = [List]()
+        var seenDays = Set<Date>()
         
-        let groupedByDay = Dictionary(grouping: weather.list) { item -> Date in
+        let filteredList = weatherData.list.filter { item in
             let date = Date(timeIntervalSince1970: TimeInterval(item.dt))
-            return calendar.startOfDay(for: date)
+            return date >= today
         }
+      
+        var dailyGroupedForecasts = [Date: [List]]()
         
-        let sortedKeys = groupedByDay.keys.sorted().prefix(5)
-        for key in sortedKeys {
-            if let weatherItems = groupedByDay[key] {
-                if let firstItem = weatherItems.first {
-                    groupedDetails.append(WeatherDetail(city: weather.city, weatherItem: firstItem))
-                }
+        for item in filteredList {
+            let date = Date(timeIntervalSince1970: TimeInterval(item.dt))
+            let day = calendar.startOfDay(for: date)
+            if !seenDays.contains(day) {
+                seenDays.insert(day)
+                dailyGroupedForecasts[day] = []
+            }
+            dailyGroupedForecasts[day]?.append(item)
+        }
+        for day in seenDays.sorted().prefix(5) {
+            if let forecasts = dailyGroupedForecasts[day] {
+                dailyForecasts.append(contentsOf: forecasts)
             }
         }
-        return groupedDetails
+        return WeatherDataModel(list: dailyForecasts, city: weatherData.city)
     }
 }

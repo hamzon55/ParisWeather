@@ -19,7 +19,7 @@ enum WeatherEndpoint: APIEndpoint {
         case .fiveDayForecast(let city):
             return ["q": city,
                     "appid": WeatherConstants.apiKey
-                    ]
+            ]
         }
     }
     

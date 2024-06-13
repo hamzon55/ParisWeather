@@ -1,7 +1,6 @@
 import Foundation
 
-protocol APIEndpoint {
-    
+protocol APIEndpoint {    
     var baseURL: URL { get }
     var path: String { get }
     var parameters: [String: Any]? { get }

@@ -20,16 +20,7 @@ class WeatherView: UIView {
         enum SmallFont {
             static let font = UIFont.boldSystemFont(ofSize: 14)
         }
-        enum Wind {
-            static let speedFormat = "Wind Speed: %@ m/s"
-            static let gustFormat = "Wind Gust: %@ m/s"
-        }
-        enum Humidity {
-            static let format = "Humidity: %@%%"
-        }
-        enum Pressure {
-            static let format = "Pressure: %@ hPa"
-        }
+      
     }
     
     private var weatherImageView: UIImageView = {
@@ -159,10 +150,10 @@ class WeatherView: UIView {
     func apply(weatherElemt: List) {
         overallLabel.text =  weatherElemt.weather.first?.description.rawValue
         temperatureLabel.text = String(weatherElemt.main.humidity)
-        humidityLabel.text = String(format: Constants.Humidity.format, "\(weatherElemt.main.humidity)")
-        pressureLabel.text = String(format: Constants.Pressure.format, "\(weatherElemt.main.pressure)")
-        weatherSpeedLabel.text = String(format: Constants.Wind.speedFormat, weatherElemt.wind.speed.toString())
-        weatherGustLabel.text = String(format: Constants.Wind.gustFormat, weatherElemt.wind.gust.toString())
+        humidityLabel.text = String(format: WeatherConstants.Humidity.format, "\(weatherElemt.main.humidity)")
+        pressureLabel.text = String(format: WeatherConstants.Pressure.format, "\(weatherElemt.main.pressure)")
+        weatherSpeedLabel.text = String(format: WeatherConstants.Wind.speedFormat, weatherElemt.wind.speed.toString())
+        weatherGustLabel.text = String(format: WeatherConstants.Wind.gustFormat, weatherElemt.wind.gust.toString())
         let iconURLString = weatherElemt.weather.first?.icon
         if let iconURL = iconURLString?.asWeatherIconURL() {
             weatherImageView.download(image: iconURL)

@@ -5,11 +5,10 @@ import SnapKit
 
 class HourlyForecastCell: UITableViewCell {
     static let cellID = "HourlyForecastCell"
-    
     private let timeLabel = UILabel()
     private let windSpeedLabel = UILabel()
     private let iconView = UIImageView()
-    let iconSize: CGFloat = 50
+    private let iconSize: CGFloat = 50
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -21,19 +20,13 @@ class HourlyForecastCell: UITableViewCell {
     }
     
     private func setupUI() {
-        
         iconView.snp.makeConstraints { make in
             make.height.width.equalTo(iconSize)
         }
-        
-        let stackView = UIStackView(arrangedSubviews: [timeLabel,
-                                                       iconView,
-                                                       windSpeedLabel
-                                                      ])
+        let stackView = UIStackView(arrangedSubviews: [timeLabel,iconView,windSpeedLabel])
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
         addSubview(stackView)
-        
         stackView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(Spacing.topOffset)
         }
@@ -49,4 +42,3 @@ class HourlyForecastCell: UITableViewCell {
         }
     }
 }
-

@@ -7,7 +7,7 @@ protocol WeatherDetailViewModelType: AnyObject {
 
 enum WeatherDetailViewState {
     case idle
-    case success(WeatherDetail)
+    case success(List, [List])
     case failure(String)
 }
 

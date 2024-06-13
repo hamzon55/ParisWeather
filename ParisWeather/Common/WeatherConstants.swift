@@ -5,12 +5,20 @@ struct WeatherConstants {
     static let forecastKey = "forecast"
     static let weatherKey = "weather"
     static let Country = "Paris"
-    static let imageURL = "https://openweathermap.org/img/wn/%@@2x.png"  
+    static let imageURL = "https://openweathermap.org/img/wn/%@@2x.png"
     
     enum Wind {
-       static let title = "Wind Information:"
-       static let speed = "Speed: %.2f"
-       static let gust = "Gust: %.2f"
+        static let title = "Wind Information:"
+        static let speed = "Speed: %.2f"
+        static let gust = "Gust: %.2f"
         static let windSpeedTextFormat = "Wind : %@ m/s"
+        static let speedFormat = "Wind Speed: %@ m/s"
+        static let gustFormat = "Wind Gust: %@ m/s"
+    }
+    enum Humidity {
+        static let format = "Humidity: %@%%"
+    }
+    enum Pressure {
+        static let format = "Pressure: %@ hPa"
     }
 }

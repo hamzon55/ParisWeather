@@ -17,4 +17,3 @@ extension Double {
         return String(format: "%.1f",self)
     }
 }
-
