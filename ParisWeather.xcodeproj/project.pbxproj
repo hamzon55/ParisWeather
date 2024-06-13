@@ -38,6 +38,7 @@
 		20C07BCF2C1B3CE00070D202 /* MockURLSessionAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C07BCE2C1B3CE00070D202 /* MockURLSessionAPIClient.swift */; };
 		20C07BD12C1B3D810070D202 /* DefaultWeatherUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C07BD02C1B3D810070D202 /* DefaultWeatherUseCaseTests.swift */; };
 		20C07BD32C1B42CB0070D202 /* MockWeatherDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C07BD22C1B42CB0070D202 /* MockWeatherDataModel.swift */; };
+		20C07BE02C1B5DCD0070D202 /* ST_WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C07BDF2C1B5DCD0070D202 /* ST_WeatherCell.swift */; };
 		20C8B1C42C1718DD00D4E225 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8B1C32C1718DD00D4E225 /* AppDelegate.swift */; };
 		20C8B1C62C1718DD00D4E225 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8B1C52C1718DD00D4E225 /* SceneDelegate.swift */; };
 		20C8B1C82C1718DD00D4E225 /* ParisWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8B1C72C1718DD00D4E225 /* ParisWeatherViewController.swift */; };
@@ -101,6 +102,7 @@
 		20C07BCE2C1B3CE00070D202 /* MockURLSessionAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionAPIClient.swift; sourceTree = "<group>"; };
 		20C07BD02C1B3D810070D202 /* DefaultWeatherUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultWeatherUseCaseTests.swift; sourceTree = "<group>"; };
 		20C07BD22C1B42CB0070D202 /* MockWeatherDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWeatherDataModel.swift; sourceTree = "<group>"; };
+		20C07BDF2C1B5DCD0070D202 /* ST_WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ST_WeatherCell.swift; sourceTree = "<group>"; };
 		20C8B1C02C1718DD00D4E225 /* ParisWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParisWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20C8B1C32C1718DD00D4E225 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20C8B1C52C1718DD00D4E225 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -255,6 +257,14 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		20C07BDE2C1B5D050070D202 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				20C07BDF2C1B5DCD0070D202 /* ST_WeatherCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		20C8B1B72C1718DD00D4E225 = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +307,7 @@
 		20C8B1D92C1718DE00D4E225 /* ParisWeatherTests */ = {
 			isa = PBXGroup;
 			children = (
+				20C07BDE2C1B5D050070D202 /* View */,
 				20C07BC92C1A68840070D202 /* Coordinator */,
 				20C07BC42C1A67DE0070D202 /* Mocks */,
 				20C8B1DA2C1718DE00D4E225 /* ParisWeatherTests.swift */,
@@ -634,6 +645,7 @@
 				20C07BD12C1B3D810070D202 /* DefaultWeatherUseCaseTests.swift in Sources */,
 				20C07BC82C1A68500070D202 /* MockNavigationController.swift in Sources */,
 				20C07BD32C1B42CB0070D202 /* MockWeatherDataModel.swift in Sources */,
+				20C07BE02C1B5DCD0070D202 /* ST_WeatherCell.swift in Sources */,
 				20C07BCB2C1A68920070D202 /* MainCoordinatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
