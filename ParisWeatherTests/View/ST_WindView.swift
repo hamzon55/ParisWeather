@@ -11,7 +11,6 @@ final class ST_WindView: XCTestCase {
     }
     
     func testWindView(){
-        sut = WindView()
         let mockForecasts = createMockHourlyForecasts()
         sut.frame = CGRect(x: 0, y: 0, width: 375, height: 500)
         sut.apply(hourlyForecasts: mockForecasts)
