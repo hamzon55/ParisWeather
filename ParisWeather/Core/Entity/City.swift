@@ -1,8 +1,5 @@
 // MARK: - City
-struct City: Codable {
+struct City: Codable, Equatable {
     let id: Int
     let name: String
-    let coord: Coord
-    let country: String
-    let population, timezone, sunrise, sunset: Int
 }

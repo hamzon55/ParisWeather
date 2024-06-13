@@ -13,7 +13,19 @@ enum HTTPMethod: String {
     case post = "POST"
 }
 
-enum APIError: Error {
+enum APIError: Error, Equatable {
+    static func == (lhs: APIError, rhs: APIError) -> Bool {
+        switch (lhs, rhs) {
+        case (.invalidResponse, .invalidResponse):
+            return true
+        case (.networkError(let lhsError), .networkError(let rhsError)):
+            return (lhsError as NSError).domain == (rhsError as NSError).domain &&
+            (lhsError as NSError).code == (rhsError as NSError).code
+        default:
+            return false
+        }
+    }
+    
     case invalidResponse
     case networkError(Error)
 }

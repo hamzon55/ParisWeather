@@ -1,5 +1,5 @@
 // MARK: - List
-struct List: Codable {
+struct List: Codable, Equatable {
     let dt: Int
     let main: MainClass
     let weather: [Weather]
@@ -13,7 +13,7 @@ struct List: Codable {
 }
 
 // MARK: - MainClass
-struct MainClass: Codable {
+struct MainClass: Codable, Equatable {
     let temp, feelsLike, tempMin, tempMax: Double
     let pressure, seaLevel, grndLevel, humidity: Int
     let tempKf: Double
@@ -32,7 +32,7 @@ struct MainClass: Codable {
 }
 
 // MARK: - Weather
-struct Weather: Codable {
+struct Weather: Codable, Equatable {
     let id: Int
     let main: MainEnum
     let description: Description
@@ -48,14 +48,14 @@ enum Description: String, Codable {
     case scatteredClouds = "scattered clouds"
 }
 
-enum MainEnum: String, Codable {
+enum MainEnum: String, Codable, Equatable {
     case clear = "Clear"
     case clouds = "Clouds"
     case rain = "Rain"
 }
 
 // MARK: - Wind
-struct Wind: Codable {
+struct Wind: Codable, Equatable {
     let speed: Double
     let deg: Int
     let gust: Double

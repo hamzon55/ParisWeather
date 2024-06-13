@@ -75,7 +75,6 @@ class ParisWeatherViewController: UIViewController {
             debugPrint(error)
         }
     }
-    
 }
 
 extension ParisWeatherViewController: UITableViewDelegate {
