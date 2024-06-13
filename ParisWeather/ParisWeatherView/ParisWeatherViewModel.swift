@@ -47,9 +47,9 @@ class ParisWeatherViewModel: ParisWeatherViewModelType {
                     guard weatherDetails.list.indices.contains(index) else {
                         return nil
                     }
-                    let selectedDetail = self.weatherDetailsList?.list[index]
-                    if let weatherData = self.weatherDetailsList {
-                        self.coordinator.navigateToWeatherDetail(weatherDetail: selectedDetail!, weatherData: weatherData)
+                    if let selectedDetail = self.weatherDetailsList?.list[index], let weatherData = self.weatherDetailsList {
+                        let detailData = WeatherDetailData.init(weatherDetail: selectedDetail, weatherData: weatherData)
+                        self.coordinator.navigateToWeatherDetail(data: detailData)
                     }
                     return state
                 default:

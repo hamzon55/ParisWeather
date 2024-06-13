@@ -8,11 +8,9 @@ class WeatherDetailViewModel: WeatherDetailViewModelType {
     
     
     private let disposeBag = DisposeBag()
-    let weatherItem: List
-    let weatherData: WeatherDataModel
+    let weatherData: WeatherDetailData
     
-    init(weatherItem: List, weatherData: WeatherDataModel) {
-        self.weatherItem = weatherItem
+    init(weatherData: WeatherDetailData) {
         self.weatherData = weatherData
     }
     
@@ -21,9 +19,8 @@ class WeatherDetailViewModel: WeatherDetailViewModelType {
         let state = BehaviorRelay<WeatherDetailViewState>(value: .idle)
         input.appear
             .map { [unowned self] in
-                let hourlyForecasts = self.filterHourlyForecasts(for: self.weatherItem)
-                
-                return WeatherDetailViewState.success(self.weatherItem, hourlyForecasts)
+                let hourlyForecasts = self.filterHourlyForecasts(for: self.weatherData.weatherDetail)
+                return WeatherDetailViewState.success(self.weatherData, hourlyForecasts)
             }
             .bind(to: state)
             .disposed(by: disposeBag)
@@ -35,7 +32,7 @@ class WeatherDetailViewModel: WeatherDetailViewModelType {
            let selectedDate = Date(timeIntervalSince1970: TimeInterval(weatherDetail.dt))
            let startOfSelectedDay = calendar.startOfDay(for: selectedDate)
            
-        return self.weatherData.list.filter { forecast in
+        return self.weatherData.weatherData.list.filter { forecast in
                let forecastDate = Date(timeIntervalSince1970: TimeInterval(forecast.dt))
                return calendar.isDate(forecastDate, inSameDayAs: startOfSelectedDay)
            }

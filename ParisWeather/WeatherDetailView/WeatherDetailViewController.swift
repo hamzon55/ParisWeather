@@ -17,7 +17,7 @@ class WeatherDetailViewController: UIViewController {
         ])
         stackView.axis = .vertical
         stackView.distribution  = .fillEqually
-        stackView.spacing = 10
+        stackView.spacing = Spacing.topOffset
         return stackView
     }()
     
@@ -37,13 +37,14 @@ class WeatherDetailViewController: UIViewController {
     }
     
     private func updateUI(){
+        self.title =  WeatherConstants.detailWeatherTitle
         view.addSubview(verticaltackView)
         self.view.backgroundColor = .white
         verticaltackView.snp.makeConstraints { make in
-            make.leading.equalTo(view.snp.leadingMargin).offset(20)
-            make.trailing.equalTo(view.snp.trailingMargin).offset(-20)
-            make.bottom.equalTo(view.snp.bottomMargin).offset(-20)
-            make.top.equalTo(view.snp.topMargin).offset(5)
+            make.leading.equalTo(view.snp.leadingMargin).offset(Spacing.StackViewOffset)
+            make.trailing.equalTo(view.snp.trailingMargin).offset(-Spacing.StackViewOffset)
+            make.bottom.equalTo(view.snp.bottomMargin).offset(-Spacing.StackViewOffset)
+            make.top.equalTo(view.snp.topMargin).offset(Spacing.offsetStandard)
         }
     }
     
@@ -67,9 +68,9 @@ class WeatherDetailViewController: UIViewController {
         switch state {
         case .idle:
             break
-        case .success(let weatherDetail, let hourlyForecasts):
-            weatherView.apply(weatherElemt: weatherDetail)
-            windView.apply(hourlyForecasts: hourlyForecasts)
+        case .success(let weatherDetail, let foreCast):
+            weatherView.apply(weatherElement: weatherDetail)
+            windView.apply(hourlyForecasts: foreCast)
         case .failure(let error):
             debugPrint(error)
         }

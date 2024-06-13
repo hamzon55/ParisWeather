@@ -60,3 +60,9 @@ struct Wind: Codable {
     let deg: Int
     let gust: Double
 }
+
+
+struct WeatherDetailData {
+    let weatherDetail: List
+    let weatherData: WeatherDataModel
+}

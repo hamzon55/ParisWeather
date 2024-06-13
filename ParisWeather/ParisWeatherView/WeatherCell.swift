@@ -63,7 +63,6 @@ class WeatherCell: UITableViewCell {
         overallLabel.text = nil
         temperatureLabel.text = nil
         dayNameLabel.text = nil
-        
         iconImageView.cancelDownloading()
     }
     

@@ -6,7 +6,7 @@ class WeatherView: UIView {
     
     private enum Constants {
         enum Location {
-            static let font = UIFont.boldSystemFont(ofSize: 32)
+            static let font = UIFont.boldSystemFont(ofSize: 48)
         }
         enum Temperature {
             static let font = UIFont.boldSystemFont(ofSize: 55)
@@ -28,6 +28,7 @@ class WeatherView: UIView {
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
+    
     
     private var locationLabel: UILabel = {
         let label = UILabel()
@@ -107,54 +108,61 @@ class WeatherView: UIView {
     private func layout(){
         
         [locationLabel, weatherImageView, temperatureLabel, overallLabel,
-         weatherSpeedLabel, weatherGustLabel, humidityLabel, pressureLabel
-        ].forEach { addSubview($0)}
+         weatherSpeedLabel, weatherGustLabel, humidityLabel, pressureLabel].forEach { addSubview($0)}
         
         locationLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(10)
+            make.top.equalToSuperview().offset(Spacing.topOffset)
             make.centerX.equalToSuperview()
         }
+        
         temperatureLabel.snp.makeConstraints { make in
-            make.top.equalTo(locationLabel.snp.bottom).offset(15)
+            make.top.equalTo(locationLabel.snp.bottom).offset(Spacing.offset)
             make.centerY.equalTo(weatherImageView.snp.centerY)
             make.height.equalTo(weatherImageView)
         }
         weatherImageView.snp.makeConstraints { make in
-            make.top.equalTo(locationLabel.snp.bottom).offset(24)
-            make.trailing.equalTo(temperatureLabel.snp.leading).offset(10)
-            make.leading.equalToSuperview().offset(65)
+            make.top.equalTo(locationLabel.snp.bottom).offset(Spacing.WeatherImgOffset)
+            make.trailing.equalTo(temperatureLabel.snp.leading).offset(Spacing.topOffset)
+            make.leading.equalToSuperview().offset(Spacing.HighOffset)
         }
         overallLabel.snp.makeConstraints { make in
-            make.top.equalTo(temperatureLabel.snp.bottom).offset(5)
+            make.top.equalTo(temperatureLabel.snp.bottom).offset(Spacing.offsetStandard)
             make.centerX.equalToSuperview()
         }
         weatherSpeedLabel.snp.makeConstraints { make in
-            make.top.equalTo(overallLabel.snp.bottom).offset(10)
+            make.top.equalTo(overallLabel.snp.bottom).offset(Spacing.topOffset)
             make.centerX.equalToSuperview()
         }
         weatherGustLabel.snp.makeConstraints { make in
-            make.top.equalTo(weatherSpeedLabel.snp.bottom).offset(5)
+            make.top.equalTo(weatherSpeedLabel.snp.bottom).offset(Spacing.offsetStandard)
             make.centerX.equalToSuperview()
         }
         humidityLabel.snp.makeConstraints { make in
-            make.top.equalTo(weatherGustLabel.snp.bottom).offset(10)
+            make.top.equalTo(weatherGustLabel.snp.bottom).offset(Spacing.topOffset)
             make.centerX.equalToSuperview()
         }
         
         pressureLabel.snp.makeConstraints { make in
-            make.top.equalTo(humidityLabel.snp.bottom).offset(5)
+            make.top.equalTo(humidityLabel.snp.bottom).offset(Spacing.offsetStandard)
             make.centerX.equalToSuperview()
         }
     }
     
-    func apply(weatherElemt: List) {
-        overallLabel.text =  weatherElemt.weather.first?.description.rawValue
-        temperatureLabel.text = String(weatherElemt.main.humidity)
-        humidityLabel.text = String(format: WeatherConstants.Humidity.format, "\(weatherElemt.main.humidity)")
-        pressureLabel.text = String(format: WeatherConstants.Pressure.format, "\(weatherElemt.main.pressure)")
-        weatherSpeedLabel.text = String(format: WeatherConstants.Wind.speedFormat, weatherElemt.wind.speed.toString())
-        weatherGustLabel.text = String(format: WeatherConstants.Wind.gustFormat, weatherElemt.wind.gust.toString())
-        let iconURLString = weatherElemt.weather.first?.icon
+    func apply(weatherElement: WeatherDetailData) {
+       
+        guard let listDetail = weatherElement.weatherData.list.first,
+              let weatherDetail = listDetail.weather.first else {
+            return
+        }
+    
+        locationLabel.text = weatherElement.weatherData.city.name
+        overallLabel.text =  weatherDetail.description.rawValue
+        temperatureLabel.text = String(listDetail.main.humidity)
+        humidityLabel.text = String(format: WeatherConstants.Humidity.format, "\(listDetail.main.humidity)")
+        pressureLabel.text = String(format: WeatherConstants.Pressure.format, "\(listDetail.main.pressure)")
+        weatherSpeedLabel.text = String(format: WeatherConstants.Wind.speedFormat, listDetail.wind.speed.toString())
+        weatherGustLabel.text = String(format: WeatherConstants.Wind.gustFormat, listDetail.wind.gust.toString())
+        let iconURLString = listDetail.weather.first?.icon
         if let iconURL = iconURLString?.asWeatherIconURL() {
             weatherImageView.download(image: iconURL)
         }
