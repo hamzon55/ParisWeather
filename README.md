@@ -20,7 +20,8 @@
 ## Installation
 
 Clone the repository:
-git clone https://github.com/yourusername/WeatherApp.git
+git clone https://github.com/hamzon55/ParisWeather.git
+Please run "pod install" in order to get all the dependencies.
 
 
 ## Architecture and implementation details
