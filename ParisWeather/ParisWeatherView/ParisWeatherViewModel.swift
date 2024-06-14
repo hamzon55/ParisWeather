@@ -9,7 +9,6 @@ class ParisWeatherViewModel: ParisWeatherViewModelType {
     private let disposeBag = DisposeBag()
     private let useCase: WeatherUseCase
     private let coordinator: MainCoordinator
-    
     var weatherDetailsList: WeatherDataModel?
     
     init(useCase: WeatherUseCase, coordinator: MainCoordinator) {

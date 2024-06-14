@@ -2,7 +2,6 @@ import Foundation
 import UIKit
 @testable import ParisWeather
 
-
 class MockNavigationController: UINavigationController {
     var pushedViewController: UIViewController?
     

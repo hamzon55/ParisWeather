@@ -13,6 +13,7 @@ target 'ParisWeather' do
   target 'ParisWeatherTests' do
     inherit! :search_paths
     pod 'RxBlocking'
+    pod 'RxTest'
     pod 'SnapshotTesting'
   end
 

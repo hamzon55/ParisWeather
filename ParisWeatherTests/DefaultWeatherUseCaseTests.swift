@@ -30,6 +30,7 @@ final class DefaultWeatherUseCaseTests: XCTestCase {
         mockAPIClient.result = Observable.just(mockWeatherDataModel)
         let result = try! sut.getFiveDayForecast(city: "Paris").toBlocking().first()
         XCTAssertNotNil(result)
+        XCTAssertEqual(result, mockWeatherDataModel)
         XCTAssertEqual(result?.city.name, "Paris")
         XCTAssertEqual(result?.list.count, 2)
     }
@@ -47,7 +48,3 @@ final class DefaultWeatherUseCaseTests: XCTestCase {
         }
     }
 }
-    
-    
-
-

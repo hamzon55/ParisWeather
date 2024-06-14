@@ -4,13 +4,14 @@ import XCTest
 final class MainCoordinatorTests: XCTestCase {
     
     var mockNavigationController: MockNavigationController!
-    var coordinator: MainCoordinator!
+    var coordinator: MockCoordinator!
     
     override func setUp() {
         super.setUp()
         mockNavigationController =  MockNavigationController()
-        coordinator = MainCoordinator(navigationController: mockNavigationController)
+        coordinator = MockCoordinator(navigationController: mockNavigationController)
     }
+    
     override func tearDown() {
           mockNavigationController = nil
           coordinator = nil
