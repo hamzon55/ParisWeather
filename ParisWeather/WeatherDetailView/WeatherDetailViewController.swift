@@ -72,7 +72,7 @@ class WeatherDetailViewController: UIViewController {
             hideLoadingView()
             weatherView.apply(weatherElement: weatherDetail)
             windView.apply(hourlyForecasts: foreCast)
-        case .failure(let error):
+        case .failure(_):
             hideLoadingView()
         }
     }

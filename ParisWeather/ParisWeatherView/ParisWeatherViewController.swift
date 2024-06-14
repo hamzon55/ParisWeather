@@ -72,7 +72,7 @@ class ParisWeatherViewController: UIViewController {
             hideLoadingView()
             self.viewModel.weatherDetailsList = weatherResponse
             tableView.reloadData()
-        case .failure(let error):
+        case .failure(_):
             hideLoadingView()
         }
     }
