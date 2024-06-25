@@ -35,3 +35,11 @@ The application is written in Swift and designed using MVVM architecture with Rx
 Test:
 - Swift Snapshot Testing
 - RxBlocking for Testing
+
+## Improvements
+
+- Add Fake AppDelegate for Unit Testing
+- Adapter to ParisVC TableView
+- Unit testing for DetailView
+- Ipad Adaptability
+- Fastlane 
