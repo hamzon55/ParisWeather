@@ -65,7 +65,7 @@ class ParisWeatherViewModel: ParisWeatherViewModelType {
     private func processFiveDayForecast(weatherData: WeatherDataModel) -> WeatherDataModel {
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: Date())
-        var dailyForecasts = [List]()
+        var dailyForecasts = [ForeCast]()
         var seenDays = Set<Date>()
         
         let filteredList = weatherData.list.filter { item in
@@ -73,7 +73,7 @@ class ParisWeatherViewModel: ParisWeatherViewModelType {
             return date >= today
         }
       
-        var dailyGroupedForecasts = [Date: [List]]()
+        var dailyGroupedForecasts = [Date: [ForeCast]]()
         
         for item in filteredList {
             let date = Date(timeIntervalSince1970: TimeInterval(item.dt))

@@ -27,7 +27,7 @@ class WeatherDetailViewModel: WeatherDetailViewModelType {
         return WeatherDetailViewOutput(state: state.asObservable())
         
     }
-    private func filterHourlyForecasts(for weatherDetail: List) -> [List] {
+    private func filterHourlyForecasts(for weatherDetail: ForeCast) -> [ForeCast] {
            let calendar = Calendar.current
            let selectedDate = Date(timeIntervalSince1970: TimeInterval(weatherDetail.dt))
            let startOfSelectedDay = calendar.startOfDay(for: selectedDate)

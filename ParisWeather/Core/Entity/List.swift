@@ -1,5 +1,5 @@
 // MARK: - List
-struct List: Codable, Equatable {
+struct ForeCast: Codable, Equatable {
     let dt: Int
     let main: MainClass
     let weather: [Weather]
@@ -64,6 +64,6 @@ struct Wind: Codable, Equatable {
 
 
 struct WeatherDetailData {
-    let weatherDetail: List
+    let weatherDetail: ForeCast
     let weatherData: WeatherDataModel
 }

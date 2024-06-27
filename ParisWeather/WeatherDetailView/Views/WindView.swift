@@ -13,7 +13,7 @@ class WindView: UIView {
     }
     
     private let tableView = UITableView()
-    private var hourlyForecasts: [List] = [] {
+    private var hourlyForecasts: [ForeCast] = [] {
         didSet {
             tableView.reloadData()
         }
@@ -37,7 +37,7 @@ class WindView: UIView {
         tableView.register(HourlyForecastCell.self, forCellReuseIdentifier: HourlyForecastCell.cellID)
     }
     
-    func apply(hourlyForecasts: [List]) {
+    func apply(hourlyForecasts: [ForeCast]) {
         self.hourlyForecasts = hourlyForecasts
     }
 }

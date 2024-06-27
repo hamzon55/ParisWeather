@@ -95,7 +95,7 @@ class WeatherCell: UITableViewCell {
         [overallLabel,temperatureLabel,iconImageView, dayNameLabel].forEach { addSubview($0)}
     }
     
-    func configure(with forecast: List) {
+    func configure(with forecast: ForeCast) {
         let minTemp =   forecast.main.tempMin.toCelsiusString()
         let maxTemp =   forecast.main.tempMax.toCelsiusString()
         let date = Date(timeIntervalSince1970: TimeInterval(forecast.dt))

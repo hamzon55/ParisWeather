@@ -32,7 +32,7 @@ class HourlyForecastCell: UITableViewCell {
         }
     }
     
-    func configure(with forecast: List) {
+    func configure(with forecast: ForeCast) {
         let date = Date(timeIntervalSince1970: TimeInterval(forecast.dt))
         timeLabel.text = date.timeInHourMinuteFormat()
         windSpeedLabel.text = String(format: WeatherConstants.Wind.windSpeedTextFormat, "\(forecast.wind.speed)")
