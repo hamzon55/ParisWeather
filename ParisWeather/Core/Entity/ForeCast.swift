@@ -1,4 +1,4 @@
-// MARK: - List
+// MARK: - ForeCast
 struct ForeCast: Codable, Equatable {
     let dt: Int
     let main: MainClass

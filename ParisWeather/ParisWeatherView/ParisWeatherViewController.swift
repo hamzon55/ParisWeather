@@ -101,9 +101,6 @@ extension ParisWeatherViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: WeatherCell.cellID, for: indexPath) as! WeatherCell
         let weatherList = viewModel.weatherDetailsList?.list[indexPath.row]
         cell.configure(with: weatherList!)
-        cell.backgroundColor = UIColor { traitCollection in
-            return traitCollection.userInterfaceStyle == .dark ? .black : .white
-        }
         return cell
     }
 }

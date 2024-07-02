@@ -38,12 +38,12 @@ class MockWeatherDataModel {
                          deg: 150,
                          gust: 2.5)
         
-        let list1 = List(dt: 1622512800,
+        let list1 = ForeCast(dt: 1622512800,
                          main: mainClass1,
                          weather: [weather1],
                          wind: wind1,
                          dtTxt: "2021-06-01 12:00:00")
-        let list2 = List(dt: 1622599200,
+        let list2 = ForeCast(dt: 1622599200,
                          main: mainClass2,
                          weather: [weather2],
                          wind: wind2,

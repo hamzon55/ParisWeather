@@ -1,15 +1,19 @@
 import Foundation
 import RxSwift
 
-protocol ParisWeatherViewModelType: AnyObject {
-    func transform(input:ParisWeatherViewInput) -> ParisWeatherViewModelOutput
-}
+struct ParisWeatherViewInput {
+    let appear: Observable<Void>
+    let selection: Observable<Int>
+  }
 
-enum ParisWeatherViewState: Equatable {
+enum ParisWeatherViewState {
     case idle
     case success(WeatherDataModel)
     case failure(String)
     
+}
+
+extension ParisWeatherViewState: Equatable {
     static func == (lhs: ParisWeatherViewState, rhs: ParisWeatherViewState) -> Bool {
         switch (lhs, rhs) {
         case (.idle, .idle):
@@ -23,11 +27,10 @@ enum ParisWeatherViewState: Equatable {
     }
 }
 
-struct ParisWeatherViewInput {
-    let appear: Observable<Void>
-    let selection: Observable<Int>
-  }
-
 struct ParisWeatherViewModelOutput {
     let state: Observable<ParisWeatherViewState>
+}
+
+protocol ParisWeatherViewModelType: AnyObject {
+    func transform(input:ParisWeatherViewInput) -> ParisWeatherViewModelOutput
 }
