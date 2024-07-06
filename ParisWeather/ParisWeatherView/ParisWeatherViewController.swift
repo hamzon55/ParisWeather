@@ -32,7 +32,7 @@ class ParisWeatherViewController: UIViewController {
     }
     
     private func setupUI() {
-        self.title =  WeatherConstants.weatherTitle
+        self.title =  WeatherConstants.Weather.weatherTitle
         tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = true
         tableView.dataSource = self

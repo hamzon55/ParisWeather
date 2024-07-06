@@ -37,7 +37,7 @@ class WeatherDetailViewController: UIViewController {
     }
     
     private func updateUI(){
-        self.title =  WeatherConstants.detailWeatherTitle
+        self.title =  WeatherConstants.Weather.detailWeatherTitle
         view.addSubview(verticaltackView)
         self.view.backgroundColor = .white
         verticaltackView.snp.makeConstraints { make in

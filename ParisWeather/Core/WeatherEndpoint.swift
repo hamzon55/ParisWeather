@@ -10,7 +10,7 @@ enum WeatherEndpoint: APIEndpoint {
     var path: String {
         switch self {
         case .fiveDayForecast:
-            return  WeatherConstants.forecastKey
+            return  WeatherConstants.Weather.forecastKey
         }
     }
     

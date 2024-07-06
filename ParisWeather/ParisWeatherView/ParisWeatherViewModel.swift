@@ -8,7 +8,7 @@ class ParisWeatherViewModel: ParisWeatherViewModelType {
     
     private let disposeBag = DisposeBag()
     private let useCase: WeatherUseCase
-    private let coordinator: MainCoordinator
+    private weak var coordinator: MainCoordinator?
     var weatherDetailsList: WeatherDataModel?
     
     init(useCase: WeatherUseCase, coordinator: MainCoordinator) {
@@ -21,7 +21,7 @@ class ParisWeatherViewModel: ParisWeatherViewModelType {
         
         input.appear
             .flatMapLatest { [unowned self] _ in
-                self.useCase.getFiveDayForecast(city: WeatherConstants.Country)
+                self.useCase.getFiveDayForecast(city: WeatherConstants.Country.countryTitle)
                     .asObservable()
                     .materialize()
             }
@@ -48,7 +48,7 @@ class ParisWeatherViewModel: ParisWeatherViewModelType {
                     }
                     if let selectedDetail = self.weatherDetailsList?.list[index], let weatherData = self.weatherDetailsList {
                         let detailData = WeatherDetailData.init(weatherDetail: selectedDetail, weatherData: weatherData)
-                        self.coordinator.navigateToWeatherDetail(data: detailData)
+                        self.coordinator?.navigateToWeatherDetail(data: detailData)
                     }
                     return state
                 default:
