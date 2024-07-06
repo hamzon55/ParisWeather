@@ -12,7 +12,6 @@ class MainCoordinator: FlowCoordinator {
     // Start method to initiate the flow of the coordinator
     func start() {
         let viewController =  ParisWeatherViewController(viewModel: WeatherViewModelFactory.createViewModel(coordinator: self))
-        viewController.coordinator = self
         navigationController.pushViewController(viewController, animated: false)
     }
     

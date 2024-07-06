@@ -14,7 +14,6 @@ class ParisWeatherViewController: UIViewController {
     private let appearSubject = PublishSubject<Void>()
     private let selectionSubject = PublishSubject<Int>()
     private var tableView: UITableView!
-    var coordinator: MainCoordinator?
     
     init(viewModel: ParisWeatherViewModel) {
         self.viewModel = viewModel
