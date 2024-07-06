@@ -23,14 +23,14 @@ class WeatherView: UIView {
       
     }
     
-    private var weatherImageView: UIImageView = {
+    private lazy var weatherImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
     
-    private var locationLabel: UILabel = {
+    private lazy var locationLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.textAlignment = .center
@@ -40,7 +40,7 @@ class WeatherView: UIView {
         return label
     }()
     
-    private var weatherSpeedLabel: UILabel = {
+    private lazy var weatherSpeedLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.textAlignment = .center
@@ -50,7 +50,7 @@ class WeatherView: UIView {
         return label
     }()
     
-    private var weatherGustLabel: UILabel = {
+    private lazy var weatherGustLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.textAlignment = .center
@@ -59,7 +59,7 @@ class WeatherView: UIView {
         label.numberOfLines = 0
         return label
     }()
-    private var overallLabel: UILabel = {
+    private lazy var overallLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.textAlignment = .center
@@ -68,7 +68,7 @@ class WeatherView: UIView {
         label.numberOfLines = 0
         return label
     }()
-    private var temperatureLabel: UILabel = {
+    private lazy var temperatureLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.textAlignment = .center
@@ -77,7 +77,7 @@ class WeatherView: UIView {
         label.numberOfLines = 0
         return label
     }()
-    private var humidityLabel: UILabel = {
+    private lazy var humidityLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.textAlignment = .center
@@ -87,7 +87,7 @@ class WeatherView: UIView {
         return label
     }()
     
-    private var pressureLabel: UILabel = {
+    private lazy var pressureLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.textAlignment = .center
@@ -121,9 +121,9 @@ class WeatherView: UIView {
             make.height.equalTo(weatherImageView)
         }
         weatherImageView.snp.makeConstraints { make in
-            make.top.equalTo(locationLabel.snp.bottom).offset(Spacing.WeatherImgOffset)
+            make.top.equalTo(locationLabel.snp.bottom).offset(Spacing.weatherImgOffset)
             make.trailing.equalTo(temperatureLabel.snp.leading).offset(Spacing.topOffset)
-            make.leading.equalToSuperview().offset(Spacing.HighOffset)
+            make.leading.equalToSuperview().offset(Spacing.highOffset)
         }
         overallLabel.snp.makeConstraints { make in
             make.top.equalTo(temperatureLabel.snp.bottom).offset(Spacing.offsetStandard)

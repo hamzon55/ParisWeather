@@ -6,7 +6,7 @@ enum Spacing {
     static let temperaturetrailing: CGFloat = -10
     static let offsetStandard: CGFloat = 5
     static let topOffset: CGFloat = 10
-    static let StackViewOffset = 20
-    static let HighOffset = 80
-    static let WeatherImgOffset = 24
+    static let stackViewOffset = 20
+    static let highOffset = 80
+    static let weatherImgOffset = 24
 }

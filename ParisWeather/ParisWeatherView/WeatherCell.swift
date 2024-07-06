@@ -19,7 +19,7 @@ class WeatherCell: UITableViewCell {
         static let iconSize: CGFloat = 80
     }
     
-    private var overallLabel: UILabel = {
+    private lazy var overallLabel: UILabel = {
         let label = UILabel()
         label.textColor = .darkGray
         label.textAlignment = .left
@@ -28,7 +28,7 @@ class WeatherCell: UITableViewCell {
         return label
     }()
     
-    private var dayNameLabel: UILabel = {
+    private lazy var dayNameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.textAlignment = .left
@@ -37,7 +37,7 @@ class WeatherCell: UITableViewCell {
         return label
     }()
     
-    private var temperatureLabel: UILabel = {
+    private lazy var temperatureLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.textAlignment = .right
@@ -46,7 +46,7 @@ class WeatherCell: UITableViewCell {
         return label
     }()
     
-    private var iconImageView: UIImageView = {
+    private lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         return imageView
@@ -92,7 +92,7 @@ class WeatherCell: UITableViewCell {
     }
     
     private func setupUI() {
-        [overallLabel,temperatureLabel,iconImageView, dayNameLabel].forEach { addSubview($0)}
+        [overallLabel, temperatureLabel, iconImageView, dayNameLabel].forEach { addSubview($0)}
     }
     
     func configure(with forecast: ForeCast) {

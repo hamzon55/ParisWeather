@@ -20,6 +20,7 @@ struct WeatherConstants {
     enum Humidity {
         static let format = "Humidity: %@%%"
     }
+    
     enum Pressure {
         static let format = "Pressure: %@ hPa"
     }

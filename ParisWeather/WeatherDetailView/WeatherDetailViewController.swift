@@ -41,9 +41,9 @@ class WeatherDetailViewController: UIViewController {
         view.addSubview(verticaltackView)
         self.view.backgroundColor = .white
         verticaltackView.snp.makeConstraints { make in
-            make.leading.equalTo(view.snp.leadingMargin).offset(Spacing.StackViewOffset)
-            make.trailing.equalTo(view.snp.trailingMargin).offset(-Spacing.StackViewOffset)
-            make.bottom.equalTo(view.snp.bottomMargin).offset(-Spacing.StackViewOffset)
+            make.leading.equalTo(view.snp.leadingMargin).offset(Spacing.stackViewOffset)
+            make.trailing.equalTo(view.snp.trailingMargin).offset(-Spacing.stackViewOffset)
+            make.bottom.equalTo(view.snp.bottomMargin).offset(-Spacing.stackViewOffset)
             make.top.equalTo(view.snp.topMargin).offset(Spacing.offsetStandard)
         }
     }
