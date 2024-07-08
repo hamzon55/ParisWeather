@@ -150,19 +150,14 @@ class WeatherView: UIView {
     
     func apply(weatherElement: WeatherDetailData) {
        
-        guard let listDetail = weatherElement.weatherData.list.first,
-              let weatherDetail = listDetail.weather.first else {
-            return
-        }
-    
         locationLabel.text = weatherElement.weatherData.city.name
-        overallLabel.text =  weatherDetail.description.rawValue
-        temperatureLabel.text = String(listDetail.main.humidity)
-        humidityLabel.text = String(format: WeatherConstants.Humidity.format, "\(listDetail.main.humidity)")
-        pressureLabel.text = String(format: WeatherConstants.Pressure.format, "\(listDetail.main.pressure)")
-        weatherSpeedLabel.text = String(format: WeatherConstants.Wind.speedFormat, listDetail.wind.speed.toString())
-        weatherGustLabel.text = String(format: WeatherConstants.Wind.gustFormat, listDetail.wind.gust.toString())
-        let iconURLString = listDetail.weather.first?.icon
+        overallLabel.text =  weatherElement.weatherDetail.weather.first?.description.rawValue
+        temperatureLabel.text = String(weatherElement.weatherDetail.main.temp.toCelsiusString())
+        humidityLabel.text = String(format: WeatherConstants.Humidity.format, "\(weatherElement.weatherDetail.main.humidity)")
+        pressureLabel.text = String(format: WeatherConstants.Pressure.format, "\(weatherElement.weatherDetail.main.pressure)")
+        weatherSpeedLabel.text = String(format: WeatherConstants.Wind.speedFormat, weatherElement.weatherDetail.wind.speed.toString())
+        weatherGustLabel.text = String(format: WeatherConstants.Wind.gustFormat, weatherElement.weatherDetail.wind.gust.toString())
+        let iconURLString = weatherElement.weatherDetail.weather.first?.icon
         if let iconURL = iconURLString?.asWeatherIconURL() {
             weatherImageView.download(image: iconURL)
         }
