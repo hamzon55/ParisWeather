@@ -19,16 +19,16 @@ struct MainClass: Codable, Equatable {
     let tempKf: Double
     
     enum CodingKeys: String, CodingKey {
-        case temp
-        case feelsLike = "feels_like"
-        case tempMin = "temp_min"
-        case tempMax = "temp_max"
-        case pressure
-        case seaLevel = "sea_level"
-        case grndLevel = "grnd_level"
-        case humidity
-        case tempKf = "temp_kf"
-    }
+           case temp
+           case feelsLike = "feels_like"
+           case tempMin = "temp_min"
+           case tempMax = "temp_max"
+           case pressure
+           case seaLevel = "sea_level"
+           case grndLevel = "grnd_level"
+           case humidity
+           case tempKf = "temp_kf"
+       }
 }
 
 // MARK: - Weather
@@ -42,11 +42,10 @@ struct Weather: Codable, Equatable {
 enum Description: String, Codable {
     case brokenClouds = "broken clouds"
     case clearSky = "clear sky"
-    case fewClouds = "few clouds"
+    case heavyIntensityRain = "heavy intensity rain"
     case lightRain = "light rain"
-    case overcastClouds = "overcast clouds"
-    case scatteredClouds = "scattered clouds"
     case moderateRain = "moderate rain"
+    case overcastClouds = "overcast clouds"
 }
 
 enum MainEnum: String, Codable, Equatable {
