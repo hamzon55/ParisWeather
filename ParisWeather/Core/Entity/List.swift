@@ -37,15 +37,24 @@ struct Weather: Codable, Equatable {
     let main: MainEnum
     let description: Description
     let icon: String
+    
+    init(id: Int, main: MainEnum, description: Description, icon: String) {
+        self.id = id
+        self.main = main
+        self.description = description
+        self.icon = icon
+    }
 }
 
 enum Description: String, Codable {
     case brokenClouds = "broken clouds"
+    case scatteredClouds = "scattered clouds"
+    case overcastClouds = "overcast clouds"
+    case fewClouds = "few clouds"
     case clearSky = "clear sky"
     case heavyIntensityRain = "heavy intensity rain"
     case lightRain = "light rain"
     case moderateRain = "moderate rain"
-    case overcastClouds = "overcast clouds"
 }
 
 enum MainEnum: String, Codable, Equatable {
@@ -65,4 +74,9 @@ struct Wind: Codable, Equatable {
 struct WeatherDetailData {
     let weatherDetail: List
     let weatherData: WeatherDataModel
+    
+    init(weatherDetail: List, weatherData: WeatherDataModel) {
+        self.weatherDetail = weatherDetail
+        self.weatherData = weatherData
+    }
 }

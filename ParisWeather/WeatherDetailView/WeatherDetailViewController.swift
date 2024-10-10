@@ -30,6 +30,8 @@ class WeatherDetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
@@ -46,10 +48,6 @@ class WeatherDetailViewController: UIViewController {
             make.bottom.equalTo(view.snp.bottomMargin).offset(-Spacing.StackViewOffset)
             make.top.equalTo(view.snp.topMargin).offset(Spacing.offsetStandard)
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
     }
     
     private func bindViewModel() {
